@@ -1,0 +1,377 @@
+@import "../core/mixins/animation";
+
+.app-c-switch{
+	display: inline-block;
+
+	label{
+		margin: 0;
+		padding: 0;
+		position: relative;
+		display: block;
+		line-height: normal;
+		cursor: pointer;
+
+		.app-c-switch--icon{
+			position: absolute;
+			top: 2px;
+			left: 4px;
+			width: 15px;
+			height: 15px;
+			background: $white;
+
+			@include border-radius(50%);
+			@include transition(background ease 0.2s, transform ease 0.2s, box-shadow ease 0.2s, left ease 0.2s);
+			@include boxShadow(0px 1px 4px rgba(17, 25, 45, 0.1));
+
+		}
+		.app-c-switch--active, .app-c-switch--inactive{
+			// color: $app-brand-secondary;
+			font-size: $text-md;
+			font-weight: $font-weight-semibold;
+			/*line-height: 13px; */
+			display: block;
+			height: 20px;
+			padding: 0px 10px 0px 22px;
+			// background: $app-toggle-bg;
+			border: 1px solid transparent;
+			background: $text-dark-30;
+
+			@include border-radius(11px);
+			@include transition(background ease 0.2s, padding ease 0.2s, color ease 0.2s, border ease 0.2s, opacity ease 0.2s);
+			@include flexbox();
+			@include align-items(center);
+		}
+		.app-c-switch--inactive{
+			// color: $text-dark-70; // old color
+			color: $text-dark-70; // new contrast color
+			border-color: $text-dark-50;
+			background: $text-dark-20;
+
+			&:hover{
+				border-color: $text-dark-50;
+				background: $text-dark-30;
+			}
+		}
+		.app-c-switch--active{
+			display: none;
+		}
+		input{
+			/* display: none; */
+			opacity: 0;
+			z-index: 1;
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: auto;
+			bottom: auto;
+			margin: 0;
+
+			&[type="checkbox"]:disabled{
+				~ .app-c-switch--inactive{
+					// background: #FAF9F8;
+					background: $text-dark-20;
+					border-color: $text-dark-20;
+					// color: #BDBDBD;
+					color: $text-dark-60;
+				}
+			}
+			&[type="checkbox"]:checked {
+				+ .app-c-switch--icon {
+					left: calc(100% - 18px);
+
+					@include boxShadow(0px 1px 4px rgba(17, 25, 45, 0.1));
+				}
+				~ .app-c-switch--inactive{
+					display: none;
+				}
+				~ .app-c-switch--active{
+					padding-right: 24px;
+					padding-left: 9px;
+					background: $green-100;
+					color: $white;
+
+					@include flexbox();
+
+					&:hover{
+						background: $green-dark-100;
+					}
+				}
+				&:disabled{
+					~ .app-c-switch--active{
+						background: $text-dark-20;
+						color: $text-dark-60;
+					}
+				}
+			}
+		}
+	}
+}
+
+.app-c-tri-switch {
+	@include flex-shrink(0);
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 60px;
+	height: 20px;
+
+	.app-c-tri-switch__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border: 1px solid transparent;
+		@include border-radius(10px);
+		@include transition(background-color ease 0.3s, border-color ease 0.3s);
+	}
+
+	input[type="radio"] {
+		opacity: 0;
+		z-index: 1;
+		width: 1px;
+		height: 1px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: auto;
+		bottom: auto;
+		margin: 0;
+
+		&:checked + label {
+			background-color: $white;
+			@include boxShadow(0px 1px 4px rgba(17, 25, 45, 0.1));
+		}
+	}
+
+	label {
+		display: inline-block;
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		top: 50%;
+		margin-top: -7px;
+		cursor: pointer;
+		@include border-radius(50%);
+		z-index: 9;
+	}
+
+	.neutral {
+		& + label {
+			left: 39%;
+	
+			.rtl &,
+			[dir="rtl"] & {
+				left: auto;
+				right: 39%;
+			}
+		}
+
+		&:checked {
+			& ~ .app-c-tri-switch__bg {
+				background-color: $text-dark-20;
+				border-color: $text-dark-50;
+			}
+		}
+	}
+	
+	.yes {
+		& + label {
+			right: 4px;
+	
+			.rtl &,
+			[dir="rtl"] & {
+				right: auto;
+				left: 4px;
+			}
+		}
+
+		&:checked {
+			& + label {
+				@include animation(slideno ease 0.3s);
+				@include transform(translateZ(0));
+			}
+
+			& ~ .app-c-tri-switch__bg {
+				background-color: $green-100;
+				border-color: $green-100;
+			}
+		}
+	}
+	
+	.no {
+		& + label {
+			left: 4px;
+	
+			.rtl &,
+			[dir="rtl"] & {
+				left: auto;
+				right: 4px;
+			}
+		}
+
+		&:checked {
+			& + label {
+				@include animation(slidein ease 0.3s);
+				@include transform(translateZ(0));
+			}
+
+			& ~ .app-c-tri-switch__bg {
+				background-color: $red-dark-100;
+				border-color: $red-dark-100;
+			}
+		}
+	}
+}
+
+@keyframes slidein {
+  from {
+		@include transform(translate(14px, 0));
+  }
+  to {
+		@include transform(translate(0px, 0));
+  }
+}
+
+@keyframes slideno {
+  from {
+    @include transform(translate(-14px, 0));
+  }
+  to {
+    @include transform(translate(0px, 0));
+  }
+}
+
+.app-c-sw-lbl {
+  font-size: $text-md;
+  color: $text-dark-60;
+
+  &.is-reject,
+  &.is-approve {
+    font-weight: $font-weight-semibold;
+  }
+
+  &.is-reject {
+    color: $red-100;
+  }
+
+  &.is-approve {
+    color: $green-100;
+  }
+}
+
+.app-c-andor-switch {
+	position: relative;
+  display: inline-block;
+  min-width: 100px;
+  height: 30px;
+
+	input { 
+		opacity: 0;
+		width: 0;
+		height: 0;
+
+		&:checked {
+			& + .app-c-andor-slider {
+				&::before {
+					@include transform(translateX(46px));
+
+					.rtl &,
+					[dir="rtl"] & {
+						@include transform(translateX(-46px));
+					}
+				}
+			}
+
+			& ~ .app-c-andor-lbl-and {
+				color: $text-dark-60;
+			}
+
+			& ~ .app-c-andor-lbl-or {
+				color: $white;
+			}
+		}
+
+		&:disabled {
+			& + .app-c-andor-slider {
+				background-color: $text-dark-20;
+				border-color: $text-dark-30;
+				cursor: not-allowed;
+
+				&::before {
+					background-color: $app-brand-primary-light;
+				}
+			}
+
+			& ~ .app-c-andor-lbl-and,
+			& ~ .app-c-andor-lbl-or {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	.app-c-andor-slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $white;
+		border: 1px solid $text-dark-50;
+		@include border-radius(2px);
+
+		&::before {
+			position: absolute;
+			content: "";
+			width: 46px;
+			height: 22px;
+			left: 3px;
+			bottom: 3px;
+			background-color: $app-brand-primary;
+			@include border-radius(2px);
+			@include transition(transform ease 0.3s);
+
+			.rtl &,
+			[dir="rtl"] & {
+				left: auto;
+				right: 3px;
+			}
+		}
+	}
+
+	.app-c-andor-lbl-and,
+	.app-c-andor-lbl-or {
+		position: absolute;
+		width: 46px;
+		height: 22px;
+		display: block;
+		bottom: 3px;
+		font-size: $text-md;
+		text-align: center;
+		cursor: pointer;
+		@include transition(color ease 0.3s);
+	}
+
+	.app-c-andor-lbl-and {
+		left: 3px;
+		color: $white;
+
+		.rtl &,
+		[dir="rtl"] & {
+			left: auto;
+			right: 3px;
+		}
+	}
+
+	.app-c-andor-lbl-or {
+		right: 3px;
+		color: $text-dark-60;
+
+		.rtl &,
+		[dir="rtl"] & {
+			right: auto;
+			left: 3px;
+		}
+	}
+}

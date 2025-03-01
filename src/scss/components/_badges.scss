@@ -1,0 +1,82 @@
+
+@import "../core/mixins/border-radius";
+
+.badge {
+    padding: 4px 8px;
+    font-size: $text-sm-plus;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+
+    @include border-radius(3px);
+
+    + .badge {
+        margin-left: 10px;
+    }
+
+    &.badge-lg {
+        padding: 9.5px 10px;
+        @include border-radius(30px);
+    }
+
+    &.app-c-badge-light{
+        &.badge-success {
+            background: $green-10;
+            color: $green-dark-100;
+        }
+        &.badge-danger {
+            background: $red-10;
+            color: $red-dark-100;
+        }
+        &.badge-warning {
+            background: $yellow-10;
+            color: $app-brand-secondary;
+        }
+        &.badge-light{
+            background: $text-dark-30;
+            color: $app-brand-secondary;
+        }
+        &.badge-primary {
+            background: $blue-10;
+            color: $blue-100;
+        }
+        &.badge-dark {
+            background: $purple-10;
+            color: $purple-100;
+        }
+        &.badge-theme {
+            background: $app-brand-primary-extra-light;
+            // color: $app-brand-primary;
+            color: $app-brand-primary-extra-dark;
+        }
+        &.badge-teal {
+            background: $teal-10;
+            color: $teal-dark-100;
+        }
+    }
+    &.app-c-badge-dark{
+        &.badge-success {
+            background: $green-100;
+            color: $white;
+        }
+        &.badge-danger {
+            background: $red-100;
+            color: $white;
+        }
+        &.badge-warning {
+            background: $yellow-100;
+            color: $white;
+        }
+        &.badge-light{
+            background: $text-dark-90;
+            color: $white;
+        }
+        &.badge-primary {
+            background: $blue-100;
+            color: $white;
+        }
+        &.badge-dark {
+            background: $purple-100;
+            color: $white;
+        }
+    }
+}

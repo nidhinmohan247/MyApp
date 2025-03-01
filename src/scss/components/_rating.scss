@@ -1,0 +1,24 @@
+.app-c-rating {
+  @include flexbox();
+  @include align-items(center);
+  li {
+    font-size: $text-xxl;
+    color: $text-dark-70;
+    &:not(:first-child) {
+      margin-left: 8px;
+      .rtl &,
+      [dit="rtl"] & {
+        margin-left: 0;
+        margin-right: 8px;
+      }
+    }
+    &.selected {
+      em {
+        color: $yellow-100;
+        &::before {
+          content: "\e95b";
+        }
+      }
+    }
+  }
+}

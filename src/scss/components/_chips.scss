@@ -1,0 +1,38 @@
+.app-c-chips{
+    padding: 6px 10px;
+    background: $white;
+    border: 1px solid $generic-border-color;
+
+    @include flexbox();
+    @include align-items(center);
+    @include border-radius(4px);
+    @include boxShadow(0px 1px 4px rgba(17, 25, 45, 0.1));
+
+    .app-c-chips--icon{
+        color: #233B58;
+        font-size: $text-lg-plus;
+        margin-right: 9px;
+
+        @include flex-shrink(0);
+
+        em{
+            display: block;
+            line-height: normal;
+        }
+    }
+    .app-c-chips--label{
+        width: 100%;
+        color: $text-dark-60;
+        font-size:  $text-md;
+        font-weight: $font-weight-normal;
+    }
+    .app-c-chips--close{
+        margin-left: 10px;
+
+        @include flex-shrink(0);
+
+        .app-c-btn--icon--small{
+            font-size: 9px;
+        }
+    }
+}

@@ -1,0 +1,828 @@
+/* Ngx bootstrap Accordion */
+
+.app-c-accordion {
+  .panel-group {
+    width: 100%;
+    outline: none;
+
+    > .panel {
+      width: 100%;
+      outline: none;
+
+      + .panel {
+        margin-top: 5px;
+      }
+
+      .card {
+        width: 100%;
+        outline: none;
+        background: none;
+        border-color: $accordrion-border;
+        margin: 0px;
+        @include transition(border ease 0.2s);
+        @include border-radius(2px);
+        @include noShadow();
+        .card-header {
+          background: none;
+          padding: 0;
+          border-bottom-color: transparent;
+          position: relative;
+          outline: none;
+
+          @include transition(border ease 0.2s, background ease 0.2s);
+
+          &:before {
+            content: "\e91f";
+            // font-family: $font-icons;
+            font-size: $text-sm;
+            color: $text-dark-90;
+            position: absolute;
+            top: 0;
+            right: 12px;
+            bottom: auto;
+            left: auto;
+            height: 100%;
+
+            @include transition(transform 0.3s ease-in-out, color ease 0.2s);
+            @include transform(rotateZ(0deg));
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(center);
+
+            .rtl &,
+            [dir="rtl"] & {
+              right: auto;
+              left: 12px;
+            }
+          }
+
+          .panel-title {
+            padding: 8px 15px;
+
+            .accordion-toggle {
+              .btn {
+                font-size: $text-md;
+                padding: 0;
+                border: none;
+                color: $text-dark-90;
+                text-decoration: none;
+                display: block;
+
+                @include noShadow();
+              }
+            }
+          }
+          .app-c-accordion--head {
+            @include flexbox();
+            @include align-items(center);
+
+            .app-c-accordion--head__button {
+              margin-left: auto;
+              margin-right: 30px;
+
+              .rtl &,
+              [dir="rtl"] & {
+                margin-right: auto;
+                margin-left: 30px;
+              }
+            }
+          }
+        }
+
+        .panel-collapse {
+          .card-body {
+            padding: 15px;
+          }
+        }
+      }
+
+      &.panel-open {
+        .card {
+          border-color: $accordrion-border-active;
+
+          .card-header {
+            border-bottom-color: transparent;
+
+            &:before {
+              @include transform(rotateZ(180deg));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.app-c-accordion--fill {
+    .panel-group {
+      .panel {
+        + .panel {
+          margin-top: 0;
+          .panel-default {
+            border-top: 1px solid $accordrion-border;
+          }
+        }
+
+        .panel-default {
+          border: none;
+
+          @include border-radius(0);
+
+          .panel-heading {
+            border: none;
+
+            @include transition(background ease 0.2s);
+
+            &:before {
+              content: "\e91f";
+              font-size: $text-sm-plus;
+              right: 20px;
+              top: 0;
+              height: 100%;
+              color: $text-dark-70;
+
+              @include transition(transform 0.3s ease-in-out, color ease 0.2s);
+              @include flexbox();
+              @include align-items(center);
+              @include justify-content(center);
+
+              .rtl &,
+              [dir="rtl"] & {
+                right: auto;
+                left: 20px;
+              }
+            }
+            .panel-title {
+              padding: 16px;
+
+              .app-c-accordion--head {
+                @include flexbox();
+                @include align-items(center);
+
+                .app-c-accordion__check {
+                  width: 16px;
+                  height: 16px;
+                  background: $white;
+                  border: 1px solid $text-dark-60;
+                  position: relative;
+                  margin-right: 8px;
+                  overflow: hidden;
+                  font-size: 9px;
+
+                  @include border-radius(50%);
+                  @include flex-shrink(0);
+                  @include transition(color ease 0.2s, background ease 0.2s);
+                  @include flexbox();
+                  @include align-items(center);
+                  @include justify-content(center);
+
+                  .rtl &,
+                  [dir="rtl"] & {
+                    margin-right: 0;
+                    margin-left: 8px;
+                  }
+
+                  &:before {
+                    content: "\e901";
+                    // font-family: $font-icons;
+                    display: block;
+                    color: $white;
+                    line-height: normal;
+                  }
+                }
+                .app-c-accordion--h-label {
+                  color: $app-brand-secondary;
+                  font-size: $text-lg;
+                  line-height: 16px;
+                  display: block;
+                  font-weight: $font-weight-normal;
+
+                  @include transition(color ease 0.2s);
+                }
+              }
+            }
+          }
+          .panel-collapse {
+            .panel-body {
+              padding: 0;
+            }
+          }
+        }
+        &.app-c-accordion--panel {
+          .panel-default {
+            background: $text-dark-10;
+            .panel-heading {
+              &:before {
+                color: $text-dark-70;
+              }
+              .panel-title {
+                .app-c-accordion--head {
+                  .app-c-accordion--h-label {
+                    color: $app-brand-secondary;
+                  }
+                }
+              }
+            }
+          }
+          &.panel-open {
+            .panel-default {
+              background: $app-brand-primary-extra-light;
+              .panel-heading {
+                &:before {
+                  color: $app-brand-primary;
+                }
+                .panel-title {
+                  .app-c-accordion--head {
+                    .app-c-accordion--h-label {
+                      color: $app-brand-primary;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &:last-child {
+            .panel-default {
+              border-bottom: 1px solid $text-dark-30;
+            }
+            &.panel-open {
+              .panel-default {
+                border-bottom-color: $white;
+              }
+            }
+          }
+        }
+        /*&.app-c-accordion--incomplete{
+                    .panel-default{
+                        background: $app-brand-primary-extra-light;
+
+                        .panel-heading{
+                            &:before{
+                                color: $app-brand-primary;
+                            }
+                            .panel-title{
+                                .app-c-accordion--head{
+                                    .app-c-accordion--h-label{
+                                        color: $app-brand-primary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }*/
+        &.app-c-accordion--complete {
+          .panel-default {
+            /*background: $white;*/
+
+            .panel-heading {
+              /*&:before{
+                                color: $text-dark-70;
+                            }*/
+              .panel-title {
+                .app-c-accordion--head {
+                  /*.app-c-accordion--h-label{
+                                        color: $app-brand-secondary;
+                                    }*/
+                  .app-c-accordion__check {
+                    border-color: $green-100;
+                    background: $green-100;
+                    color: $white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .app-c-accordion--panel--p-t-b {
+        .panel-title {
+          @include flexbox();
+          @include align-items(center);
+          padding: 8px 16px !important;
+          min-height: 48px;
+
+          .accordion-toggle {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &.app-c-accordion--secondary {
+    .panel-group {
+      > .panel {
+        background: $text-dark-10;
+
+        .panel-default {
+          .panel-heading {
+            border-bottom: none;
+
+            .panel-title {
+              padding: 7px 10px;
+            }
+            .app-c-accordion--head {
+              .app-l-rm__a-heading {
+                color: $app-brand-secondary;
+                font-weight: $font-weight-semibold;
+                font-size: $text-md;
+                line-height: 18px;
+                margin-right: 10px;
+
+                @include transition(color ease 0.2s);
+
+                .rtl &,
+                [dir="rtl"] & {
+                  margin-left: 10px;
+                  margin-right: 0;
+                }
+              }
+              .app-l-rm__a-sub-head {
+                color: $app-brand-secondary;
+                font-size: $text-md;
+                line-height: 18px;
+                font-weight: $font-weight-normal;
+
+                @include transition(color ease 0.2s);
+              }
+            }
+          }
+          .panel-collapse {
+            .panel-body {
+              padding: 12px 8px;
+            }
+          }
+        }
+        &.panel-open {
+          .card {
+            .card-header {
+              background: $app-brand-primary-extra-light;
+
+              &:before {
+                color: $app-brand-primary;
+              }
+
+              .app-c-accordion--head {
+                .app-l-rm__a-heading,
+                .app-l-rm__a-sub-head {
+                  // color: $app-brand-primary !important;
+                  color: $app-brand-primary-extra-dark !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-l-ptrc__acc {
+  & > .panel {
+    & + .panel {
+      margin-top: 8px;
+    }
+
+    .card {
+      margin: 0;
+      border: none;
+      @include noShadow();
+      @include border-radius(0);
+
+      .card-header {
+        padding: 16px;
+        background-color: $text-dark-20;
+        border-top: 1px solid $text-dark-30;
+        border-bottom: 1px solid $text-dark-30;
+        @include border-radius(0);
+
+        .app-l-ptrc__acc__head {
+          @include flexbox();
+          @include align-items(center);
+          @include justify-content(space-between);
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          .app-l-ptrc__acc__title {
+            font-size: $text-lg-plus;
+            font-weight: $font-weight-semibold;
+            color: $app-brand-primary;
+          }
+
+          .app-l-ptrc__acc__btn {
+            background-color: $app-brand-primary-20;
+            font-size: $text-sm-plus;
+            color: $app-brand-primary;
+            @include boxShadow(
+              inset 0px -1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+              inset 0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+            );
+
+            em {
+              @include transition(transform ease 0.3s);
+            }
+          }
+        }
+      }
+
+      .card-body {
+        padding: 16px 16px 8px 16px;
+        background-color: $text-dark-10;
+      }
+    }
+
+    &.panel-open {
+      .card {
+        .card-header {
+          .app-l-ptrc__acc__head {
+            .app-l-ptrc__acc__btn {
+              @include boxShadow(
+                inset 0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+                inset 0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+              );
+
+              em {
+                @include transform(rotateZ(180deg));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-l-td__det__acc {
+  & > .panel-group {
+    & > .panel {
+      & + .panel {
+        margin-top: 1px;
+      }
+
+      .card {
+        margin: 0;
+        border: none;
+        @include noShadow();
+        @include border-radius(0);
+
+        .card-header {
+          padding: 12px 16px;
+          @include border-radius(0);
+          border: none;
+          background-color: transparent;
+          @include transition(background-color ease 0.3s, box-shadow ease 0.3s);
+          @include boxShadow(
+            0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+            0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+          );
+
+          .app-l-td__det__acc__head {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(space-between);
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            .app-l-td__det__acc__title {
+              font-size: $text-lg;
+              color: $app-brand-secondary;
+              @include transition(color ease 0.3s);
+            }
+
+            .app-l-td__det__acc__btn {
+              background-color: transparent;
+              @include border-radius(0);
+              font-size: $text-sm-plus;
+              color: $app-brand-secondary;
+
+              em {
+                @include transition(transform ease 0.3s);
+              }
+            }
+          }
+        }
+
+        .card-body {
+          padding: 0;
+        }
+      }
+
+      &.panel-open {
+        .card {
+          .card-header {
+            background-color: $app-brand-primary-extra-light;
+            @include noShadow();
+
+            .app-l-td__det__acc__head {
+              .app-l-td__det__acc__title {
+                color: $app-brand-primary;
+              }
+
+              .app-l-td__det__acc__btn {
+                color: $app-brand-primary;
+
+                em {
+                  @include transform(rotateZ(180deg));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-atbox__acc {
+  & > .panel-group {
+    & > .panel {
+      & + .panel {
+        margin-top: 16px;
+      }
+
+      .card {
+        margin: 0;
+        border: none;
+        @include boxShadow(
+          0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+          0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+        );
+        @include border-radius(4px);
+
+        .card-header {
+          padding: 12px 16px;
+          @include border-radius(4px);
+          border-color: transparent;
+          background-color: $white;
+
+          .app-c-atbox__acc__head {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(space-between);
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            .app-c-atbox__acc__title {
+              font-size: $text-md-plus;
+              font-weight: $font-weight-semibold;
+              color: $app-brand-secondary;
+            }
+
+            .app-c-atbox__acc__btn {
+              background-color: transparent;
+              @include border-radius(0);
+              font-size: $text-sm-plus;
+              color: $app-brand-secondary;
+
+              em {
+                @include transition(transform ease 0.3s);
+              }
+            }
+          }
+        }
+
+        .card-body {
+          padding: 0;
+        }
+      }
+
+      &.panel-open {
+        .card {
+          .card-header {
+            @include border-radius(4px 4px 0 0);
+            border-color: $text-dark-30;
+
+            .app-c-atbox__acc__head {
+              .app-c-atbox__acc__btn {
+                em {
+                  @include transform(rotateZ(180deg));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-layers-accordion {
+  .card {
+    margin: 0;
+    border: none;
+    @include border-radius(0);
+    @include noShadow();
+
+    .card-header {
+      padding: 8px 16px;
+      border: none;
+      background-color: transparent;
+
+      &:first-child {
+        @include border-radius(0);
+      }
+    }
+  }
+
+  .card-body {
+    padding: 0;
+  }
+}
+
+.app-c-dropdown__expand {
+  .card {
+    margin: 0;
+    border: none;
+    @include border-radius(0);
+    @include noShadow();
+
+    .card-header {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      &:first-child {
+        @include border-radius(0);
+      }
+    }
+  }
+
+  .card-body {
+    padding: 0;
+  }
+}
+
+.app-c-adi__acc {
+  & > .panel {
+    & > .card {
+      border: none;
+      @include border-radius(4px);
+      @include boxShadow(
+        0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+      );
+
+      & > .card-header {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+
+        .app-c-adi__acc__tp {
+          @include flexbox();
+          @include align-items(center);
+          @include justify-content(space-between);
+          padding: 16px;
+          @include boxShadow(
+            0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+            0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+          );
+        }
+
+        .app-c-adi__acc__arrow {
+          @include flexbox();
+          @include flex-shrink(0);
+          color: $app-brand-primary;
+          @include transition(transform 0.3s ease);
+        }
+
+        &.panel-disabled {
+          .app-c-adi__acc__arrow {
+            display: none;
+          }
+
+          .accordion-toggle {
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    &.panel-open {
+      & > .card {
+        & > .card-header {
+          .app-c-adi__acc__arrow {
+            @include transform(rotateZ(180deg));
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-layer__selist__acc {
+  & > .panel-group {
+    & > .panel {
+      & > .card {
+        margin: 0;
+        border: none;
+        @include noShadow();
+        @include border-radius(10px);
+
+        & > .card-header {
+          padding: 0;
+          background-color: $white;
+          @include border-radius(10px !important);
+          border: none;
+
+          .app-c-layer__selist__acc__head {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(space-between);
+            padding: 16px;
+
+            .app-c-layer__selist__acc__title {
+              font-size: $text-md;
+              font-weight: $font-weight-semibold;
+              color: $app-brand-primary;
+            }
+
+            em {
+              @include transition(transform ease 0.3s);
+            }
+          }
+        }
+
+        .card-body {
+          padding: 0;
+        }
+      }
+
+      &.panel-open {
+        & > .card {
+          & > .card-header {
+            .app-c-layer__selist__acc__head {
+              em {
+                @include transform(rotateZ(180deg));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-upl__acc {
+  & > .panel {
+    & + .panel {
+      margin-top: 12px;
+    }
+
+    & > .card {
+      margin: 0;
+      background-color: $text-dark-10;
+      border-color: $text-dark-40;
+      @include noShadow();
+      @include border-radius(4px);
+
+      & > .card-header {
+        padding: 0;
+        background-color: $text-dark-10;
+        @include border-radius(4px !important);
+        border: none;
+      }
+
+      .card-body {
+        padding: 0;
+      }
+    }
+
+    &.panel-open {
+      & > .card {
+        & > .card-header {
+          .app-c-upl__acc__icon {
+            em {
+              @include transform(rotateZ(180deg));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-accordion--pbrd {
+  &.app-c-accordion--fill {
+    .panel-group {
+      .panel {
+        &.app-c-accordion--panel {
+          &:last-child {
+            .panel-default {
+              border-bottom: 1px solid $text-dark-10;
+            }
+
+            &.panel-open {
+              .panel-default {
+                border-bottom-color: $text-dark-10;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

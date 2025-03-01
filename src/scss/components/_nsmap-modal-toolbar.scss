@@ -1,0 +1,99 @@
+@import "../variables/variables";
+@import "../theme/theme";
+
+.app-l-nsw__head{
+  padding: 14px 16px;
+
+  @include flexbox();
+  @include align-items(center);
+  @include flex-shrink(0);
+
+  .app-l-nsw__h-left{
+      @include flexbox();
+      @include align-items(center);
+
+      .app-l-nsw__heading{
+          margin: 0;
+          padding: 0;
+          color: $app-brand-secondary;
+          font-weight: $font-weight-semibold;
+          font-size: $text-lg-plus;
+          margin-right: 40px;
+
+          .rtl &, [dir="rtl"] &{
+              margin-right: 0;
+              margin-left: 40px;
+          }
+
+          &.app-l-nsw__heading--fsize {
+            font-size: $text-md-plus;
+          }
+
+          &.app-l-nsw__heading--color {
+              color: $text-dark-70;
+          }
+      }
+      .app-l-nsw__hl-ctl{
+          @include flexbox();
+          @include align-items(center);
+
+          .app-c-btn--secondary{
+              em{
+                  font-size: $text-lg-plus;
+              }
+          }
+      }
+  }
+  .app-l-nsw__h-right{
+      margin-left: auto;
+
+      @include flexbox();
+      @include align-items(center);
+
+    .rtl &, [dir="rtl"] &{
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+      .app-l-nsw__ep{
+          margin-right: 12px;
+
+          @include flexbox();
+          @include align-items(center);
+
+          .rtl &, [dir="rtl"] &{
+              margin-left: 12px;
+              margin-right: 0;
+          }
+
+          .app-c-btn--secondary{
+              em{
+                  font-size: $text-lg-plus;
+              }
+          }
+      }
+      .app-l-nsw__search{
+          width: 100%;
+          max-width: 180px;
+      }
+      .app-l-nsw__cntrl{
+          margin-left: 12px;
+
+          @include flexbox();
+          @include align-items(center);
+
+          .rtl &, [dir="rtl"] &{
+              margin-right: 12px;
+              margin-left: 0;
+          }
+          .app-c-btn--icon-20px{
+              font-size: $text-sm-plus;
+          }
+          .app-c-btn--link-icon{
+              em{
+                  font-size: $text-md;
+              }
+          }
+      }
+  }
+}

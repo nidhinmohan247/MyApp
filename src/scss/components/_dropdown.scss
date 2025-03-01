@@ -1,0 +1,1164 @@
+.app-c-dropdown__default {
+  border: none;
+  margin-top: 8px;
+  min-width: 157px;
+
+  @include border-radius(0);
+  @include boxShadow(0px 1px 8px rgba(0, 0, 0, 0.16));
+
+  .rtl &,
+  [dir="rtl"] & {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -16px;
+    right: 0;
+    border-style: solid;
+    border-color: transparent transparent $white;
+    border-width: 8px 7px;
+
+    .rtl &,
+    [dir="rtl"] & {
+      right: auto !important;
+      left: 0;
+    }
+  }
+  &.app-c-dropdown--left {
+    .rtl &,
+    [dir="rtl"] & {
+      left: auto !important;
+      right: 0 !important;
+    }
+
+    &::after {
+      right: auto;
+      left: 4px;
+
+      .rtl &,
+      [dir="rtl"] & {
+        right: 4px !important;
+        left: auto !important;
+      }
+    }
+
+    &.app-c-dropdown--lmg-adj {
+      margin-left: -11px;
+
+      .rtl &,
+      [dir="rtl"] & {
+        margin-left: 0;
+        margin-right: -11px;
+      }
+    }
+  }
+  &.app-c-dropdown--width {
+    min-width: 180px;
+  }
+  li {
+    a {
+      display: block;
+      color: $app-brand-secondary;
+      font-size: $text-lg;
+      line-height: 20px;
+      font-weight: $font-weight-normal;
+      padding: 5px 16px;
+      position: relative;
+      cursor: pointer;
+
+      @include transition(color ease 0.2s, background ease 0.2s);
+      @include flexbox();
+      @include align-items(center);
+      .more_menu-options {
+        position: absolute;
+        right: -8px;
+        top: 11px;
+        font-size: $text-sm;
+        .rtl &,
+        [dir="rtl"] & {
+          left: -8px;
+          right: auto;
+          @include transform(rotate(180deg));
+        }
+      }
+      em {
+        width: 18px;
+        font-size: $text-lg-plus;
+        margin-right: 10px;
+
+        @include flex-shrink(0);
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+
+        .rtl &,
+        [dir="rtl"] & {
+          margin-right: 0 !important;
+          margin-left: 10px;
+        }
+      }
+      .app-c-dropdown-nested {
+        position: absolute;
+        display: none;
+        left: 157px;
+        top: -16px;
+        @include border-radius(2px);
+        &:after {
+          content: "";
+          width: 0;
+          height: 0;
+          position: absolute;
+          border-style: solid;
+          border-color: transparent;
+          border-width: 8px 7px;
+        }
+        .rtl &,
+        [dir="rtl"] & {
+          left: auto !important;
+          right: 157px !important;
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:hover {
+      a:first-child {
+        background: $app-brand-primary-extra-light;
+        color: $app-brand-primary;
+        font-weight: $font-weight-semibold;
+        .app-c-dropdown-nested {
+          display: block;
+          li {
+            a {
+              background: $white;
+              color: $app-brand-secondary;
+            }
+            &:hover {
+              a {
+                background: $app-brand-primary-extra-light;
+                color: $app-brand-primary;
+                font-weight: $font-weight-semibold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.app-l-dropdown__grid-more {
+    margin-right: -15px;
+  }
+  &.app-c-dropdown__dropup {
+    margin-top: -10px;
+
+    &:after {
+      bottom: -16px;
+      top: auto;
+      border-top-color: $white;
+      border-bottom-color: transparent;
+
+      .rtl &,
+      [dir="rtl"] & {
+        right: auto;
+        left: 8px;
+      }
+    }
+  }
+  &.app-c-dropdown__tree {
+    .rtl &,
+    [dir="rtl"] & {
+      li {
+        a {
+          em {
+            margin-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.app-l-udr__box__bt__drop {
+    width: 240px;
+    max-height: 165px;
+    @include transform(translate(0, -50%) !important);
+    right: -256px !important;
+    left: auto !important;
+    top: 50% !important;
+    margin-top: 0;
+
+    &::after {
+      left: -14px;
+      right: auto;
+      border-color: transparent $white transparent transparent;
+      top: 50%;
+      @include transform(translateY(-50%));
+
+      .rtl &,
+      [dir="rtl"] & {
+        left: auto;
+        right: -14px !important;
+        border-color: transparent transparent transparent $white;
+      }
+    }
+
+    .rtl &,
+    [dir="rtl"] & {
+      right: auto !important;
+      left: -256px !important;
+    }
+  }
+
+  &.app-c-dropdown__chklist {
+    li {
+      padding: 6px 16px;
+
+      &:hover {
+        background-color: $app-brand-primary-extra-light;
+      }
+    }
+  }
+
+  &.app-c-dropdown__wtype {
+    min-width: 125px;
+    left: -83px !important;
+    margin-top: -32px;
+
+    .rtl &,
+    [dir="rtl"] & {
+      left: auto;
+      right: -83px !important;
+    }
+  }
+
+  &.app-c-dropdown__ifc {
+    min-width: 200px;
+  }
+
+  &.app-c-dropdown__budget {
+    min-width: 305px;
+    margin-right: -8px;
+
+    .rtl &,
+    [dir="rtl"] & {
+      margin-right: 0;
+      margin-left: -8px;
+    }
+  }
+}
+
+.k-dropdown {
+  height: 30px;
+  font-family: $body-font;
+  width: 100%;
+
+  > span {
+    height: 30px;
+  }
+
+  .k-dropdown-wrap {
+    border-color: $form-control-border;
+    background: $white;
+
+    @include border-radius(2px);
+
+    .rtl &,
+    [dir="rtl"] & {
+      @include flex-direction(row-reverse);
+    }
+    .k-input {
+      height: 30px;
+      min-height: 30px;
+      font-size: $text-md;
+      font-weight: $font-weight-normal;
+      color: $app-brand-secondary;
+      padding: 6px 10px;
+
+      .rtl &,
+      [dir="rtl"] & {
+        @include flex-direction(row-reverse);
+      }
+    }
+    .k-select {
+      width: 37px;
+      .k-icon {
+        // font-family: $font-icons;
+        font-size: $text-sm-plus;
+
+        &:before {
+          content: "\e91f";
+          display: block;
+          line-height: normal;
+        }
+      }
+    }
+    &.k-state-focused {
+      background: $white;
+      border-color: $form-control-active-border;
+
+      @include boxShadow(2px 3px 5px rgba(117, 113, 111, 0.23));
+    }
+    &.k-state-disabled {
+      opacity: 1;
+      border-color: $form-control-disable-border;
+      background: $form-control-disable-background;
+      cursor: not-allowed;
+      pointer-events: auto;
+      .k-select {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &:hover {
+    .k-dropdown-wrap:not(.k-state-disabled) {
+      background: $white;
+      border-color: $form-control-hover-border;
+    }
+  }
+
+  &.k-dropdown-readonly {
+    .k-dropdown-wrap {
+      border-color: $form-control-disable-border;
+      background: $form-control-disable-background;
+      cursor: not-allowed;
+
+      &.k-state-focused {
+        border-color: $form-control-disable-border;
+        background: $form-control-disable-background;
+        @include noShadow();
+      }
+
+      .k-input {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .k-select {
+        cursor: not-allowed;
+      }
+    }
+
+    &:hover {
+      .k-dropdown-wrap {
+        border-color: $form-control-disable-border;
+        background: $form-control-disable-background;
+      }
+    }
+  }
+}
+.ng-select {
+  &.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+    .rtl &,
+    [dir="rtl"] & {
+      padding-right: 3px;
+      padding-left: 0;
+    }
+  }
+  .ng-arrow-wrapper {
+    .rtl &,
+    [dir="rtl"] & {
+      padding-right: 0;
+      padding-left: 5px;
+    }
+  }
+  .ng-select-container {
+    @include border-radius(2px);
+    border-color: $form-control-border;
+    @include transition(border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out);
+
+    &:hover {
+      border-color: $text-dark-70;
+      @include noShadow();
+    }
+  }
+  &.ng-select-opened > .ng-select-container,
+  &.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    border-color: $text-dark-70;
+    @include boxShadow(2px 3px 5px rgba(117, 113, 111, 0.23));
+  }
+}
+.k-datepicker .k-picker-wrap,
+.k-timepicker .k-picker-wrap,
+.k-datetimepicker .k-picker-wrap {
+  @include border-radius(2px);
+  border-color: $form-control-border;
+}
+.k-multiselect {
+  font-family: $body-font;
+  width: 100%;
+  &.k-state-focused {
+    .k-multiselect-wrap {
+      background: $white;
+      border-color: $form-control-active-border;
+      @include boxShadow(2px 3px 5px rgba(117, 113, 111, 0.23));
+    }
+  }
+  .k-multiselect-wrap {
+    min-height: 30px;
+    font-size: $text-md;
+    font-weight: $font-weight-normal;
+    color: $app-brand-secondary;
+    border-color: $form-control-border;
+    background: $white;
+    @include border-radius(2px);
+    .rtl &,
+    [dir="rtl"] & {
+      padding-right: 0;
+      padding-left: calc(0.75rem + 16px);
+    }
+    .k-clear-value {
+      top: 2px;
+      .rtl &,
+      [dir="rtl"] & {
+        right: auto;
+        left: 6.5px;
+      }
+    }
+    .k-searchbar {
+      .rtl &,
+      [dir="rtl"] & {
+        float: right;
+      }
+    }
+    ul {
+      li {
+        &.k-button {
+          min-height: 0;
+          padding: 2px 8px;
+          font-family: $body-font;
+          font-size: $text-md;
+          color: $app-brand-secondary;
+          @include border-radius(25px);
+          border: 1px solid $text-dark-60;
+          background-color: $text-dark-10;
+          .rtl &,
+          [dir="rtl"] & {
+            float: right;
+            flex-direction: row-reverse;
+            margin-right: calc(0.25rem - 1px);
+            margin-left: 0;
+          }
+          .k-select {
+            margin-left: 12px;
+            .rtl &,
+            [dir="rtl"] & {
+              margin-left: 0;
+              margin-right: 12px;
+            }
+            .k-icon {
+              font-size: $text-md-plus;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.has-error {
+  .k-dropdown {
+    .k-dropdown-wrap {
+      border-color: $form-error;
+    }
+    &:hover {
+      .k-dropdown-wrap {
+        border-color: $form-error;
+      }
+    }
+  }
+  .k-multiselect {
+    .k-multiselect-wrap {
+      border-color: $form-error;
+    }
+    &.k-state-focused {
+      .k-multiselect-wrap {
+        border-color: $form-error;
+      }
+    }
+  }
+}
+
+.k-animation-container {
+  .k-list-container {
+    border: none;
+
+    @include boxShadow(0px 3px 5px rgba(9, 30, 66, 0.2), 0px 0px 1px rgba(9, 30, 66, 0.31));
+    @include border-radius(2px);
+
+    .k-nodata {
+      min-height: 0;
+    }
+
+    .k-list-scroller,
+    .k-virtual-content {
+      .k-list {
+        .k-item {
+          color: $app-brand-secondary;
+          font-size: $text-lg;
+          font-weight: $font-weight-normal;
+          line-height: 16px;
+          padding: 8px 16px;
+
+          @include transition(color ease 0.2s, background ease 0.2s);
+          @include noShadow();
+
+          .rtl &,
+          [dir="rtl"] & {
+            @include flex-direction(row-reverse);
+          }
+
+          &:hover {
+            background: $app-brand-primary-extra-light !important;
+          }
+
+          &.k-state-selected {
+            font-weight: $font-weight-semibold;
+            color: $app-brand-primary;
+            /*background: $app-brand-primary-extra-light !important;*/
+            background: transparent !important;
+
+            &:hover {
+              background: $app-brand-primary-extra-light !important;
+            }
+
+            .app-c-stp__item__count {
+              color: $white;
+              border-color: $app-brand-primary;
+              background-color: $app-brand-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-l-dropdown__color-select {
+  padding: 0;
+  width: 240px;
+  border: $generic-border-color 1px solid;
+
+  @include border-radius(1px);
+  @include boxShadow((0px 3px 5px rgba(9, 30, 66, 0.2)), (0px 0px 1px rgba(9, 30, 66, 0.31)));
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -17px;
+    right: 8px;
+    border-style: solid;
+    border-color: transparent transparent $generic-border-color;
+    border-width: 8px 7px;
+
+    .rtl &,
+    [dir="rtl"] & {
+      right: auto !important;
+      left: 8px;
+    }
+  }
+}
+
+.app-c-dropdown__no-data {
+  font-size: $text-lg;
+  color: $text-dark-70;
+  text-transform: none;
+}
+
+.app-c-more-dropdown {
+  position: relative;
+  &.open {
+    .app-c-btn--icon-action {
+      color: $app-brand-primary;
+      em {
+        background-color: $app-brand-primary-light;
+      }
+    }
+  }
+}
+.app-c-dropdown__action {
+  li {
+    a {
+      &.active {
+        font-weight: $font-weight-semibold;
+        color: $app-brand-primary;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.app-c-dropdown__caption {
+  margin-bottom: 8px;
+  padding: 2px 16px 8px 16px;
+  font-size: $text-md-plus;
+  font-weight: $font-weight-semibold;
+  color: $text-dark-90;
+  border-bottom: 1px solid $text-dark-30;
+  .rtl &,
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}
+.k-list-optionlabel {
+  padding: 8px 16px;
+  font-size: $text-lg;
+  @include boxShadow(0px 2px 2px rgba(0, 0, 0, 0.08));
+  z-index: 1;
+  &:hover {
+    background-color: transparent;
+    color: $app-brand-secondary;
+  }
+  &.k-state-selected {
+    background-color: transparent;
+    color: $app-brand-secondary;
+    &:hover {
+      background-color: transparent;
+      color: $app-brand-secondary;
+    }
+  }
+  &.k-state-focused {
+    &.k-state-selected {
+      @include boxShadow(0px 2px 2px rgba(0, 0, 0, 0.08));
+    }
+  }
+}
+
+.app-l-add-comp__acc {
+  .k-dropdown {
+    height: 50px;
+
+    & > span {
+      height: 50px;
+    }
+
+    .k-dropdown-wrap {
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      border-bottom-color: $text-dark-30;
+      @include border-radius(0);
+      @include transition(background-color 0.3s ease);
+
+      &.k-state-focused {
+        border-bottom-color: $text-dark-30;
+        @include noShadow();
+      }
+
+      .k-input {
+        height: 50px;
+        min-height: 50px;
+        font-size: $text-md-plus;
+        font-weight: $font-weight-semibold;
+        color: $app-brand-primary;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        .app-c-stp__item__count {
+          color: $white;
+          border-color: $app-brand-primary;
+          background-color: $app-brand-primary;
+        }
+      }
+
+      .k-select {
+        .k-icon {
+          @include transition(transform ease 0.3s);
+          color: $text-dark-70;
+        }
+      }
+    }
+    &:hover {
+      .k-dropdown-wrap {
+        border-bottom-color: $text-dark-30;
+      }
+    }
+
+    &.comp-open {
+      .k-dropdown-wrap {
+        background-color: $text-dark-10;
+
+        .k-select {
+          .k-icon {
+            @include transform(rotateZ(180deg));
+          }
+        }
+      }
+    }
+  }
+  .k-animation-container {
+    @include border-radius(0);
+
+    .k-popup {
+      background-color: $text-dark-10;
+      @include border-radius(0);
+
+      .k-list-scroller {
+        .k-list {
+          .k-item {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            font-size: $text-md-plus;
+            color: $text-dark-70;
+
+            &:hover {
+              background: transparent !important;
+              color: $app-brand-primary;
+            }
+
+            &.k-state-selected {
+              background: transparent !important;
+              font-weight: $font-weight-normal;
+
+              &:hover {
+                background: transparent !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-pier-dropdown {
+  .k-dropdown {
+    height: 56px;
+
+    & > span {
+      height: 56px;
+    }
+
+    .k-dropdown-wrap {
+      border: none;
+      background: $app-brand-primary-extra-light;
+      @include border-radius(4px);
+      @include boxShadow(
+        0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+      );
+
+      &:hover {
+        background: $app-brand-primary-extra-light;
+      }
+
+      .k-input {
+        height: 56px;
+        min-height: 56px;
+        padding-left: 16px;
+        padding-right: 8px;
+        font-size: $text-lg-plus;
+        font-weight: $font-weight-semibold;
+        color: $app-brand-primary;
+
+        .rtl &,
+        [dir="rtl"] & {
+          padding-right: 16px;
+          padding-left: 8px;
+        }
+      }
+
+      .k-select {
+        width: auto;
+        padding-left: 8px;
+        padding-right: 16px;
+
+        .rtl &,
+        [dir="rtl"] & {
+          padding-left: 16px;
+          padding-right: 8px;
+        }
+
+        .k-icon {
+          @include flexbox();
+          @include justify-content(center);
+          @include align-items(center);
+          @include flex-shrink(0);
+          width: 24px;
+          height: 24px;
+          @include border-radius(50%);
+          background: $app-brand-primary-light;
+          color: $app-brand-primary;
+        }
+      }
+
+      &.k-state-focused {
+        @include boxShadow(
+          0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+          0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+        );
+
+        .k-select {
+          .k-icon {
+            @include boxShadow(
+              inset 0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+              inset 0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+            );
+
+            &::before {
+              @include transform(rotateZ(180deg));
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-dropdown__udr {
+  min-width: 250px;
+}
+
+.app-c-xsp-list {
+  width: 155px;
+}
+
+.app-c-layer__block__drop {
+  margin-left: -15px;
+  min-width: 172px;
+
+  &::after {
+    right: auto;
+    left: 8px;
+  }
+
+  & > li {
+    position: relative;
+
+    & > a {
+      font-size: $text-md;
+    }
+  }
+}
+
+.app-c-att__folder__search {
+  .k-dropdown {
+    &:hover {
+      .k-dropdown-wrap {
+        &:not(.k-state-disabled) {
+          background-color: $text-dark-30;
+        }
+      }
+    }
+
+    .k-dropdown-wrap {
+      padding-left: 6px;
+      padding-right: 16px;
+      border: none;
+      background-color: $text-dark-20;
+      @include border-radius(35px);
+
+      .rtl &,
+      [dir="rtl"] & {
+        padding-left: 16px;
+        padding-right: 6px;
+      }
+
+      .k-input {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: $font-weight-semibold;
+        color: $text-dark-90;
+      }
+
+      .k-select {
+        width: auto;
+        padding-left: 0;
+        padding-right: 0;
+
+        .k-icon {
+          margin-top: 2px;
+        }
+      }
+
+      &:hover {
+        &:not(.k-state-disabled) {
+          background-color: $text-dark-30;
+        }
+      }
+
+      &:not(.k-state-disabled) {
+        &.k-state-focused {
+          background-color: $text-dark-90;
+          @include noShadow();
+
+          .k-input {
+            color: $text-dark-20;
+          }
+
+          .k-select {
+            .k-icon {
+              color: $text-dark-20;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .k-animation-container {
+    width: 324px !important;
+
+    .k-list-filter {
+      min-height: 0;
+
+      & > .k-textbox {
+        @include border-radius(35px);
+      }
+
+      & > .k-icon {
+        // font-family: $font-icons;
+
+        &.k-i-search::before {
+          content: "\e922";
+        }
+      }
+    }
+
+    .k-list-container {
+      padding: 0;
+
+      .k-list-scroller {
+        .k-list {
+          .k-item {
+            @include transition(border-color 0.2s ease, color ease 0.2s, background ease 0.2s);
+
+            & + .k-item {
+              border-top: 1px solid $text-dark-30;
+            }
+
+            &:hover {
+              border-color: $app-brand-primary-20;
+
+              & + .k-item {
+                border-color: $app-brand-primary-20;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-dropdown__sort-wid {
+  min-width: 200px;
+}
+
+.app-c-dropdown__rmbl__drop {
+  max-height: 145px;
+
+  &.app-c-scroll--default {
+    position: absolute;
+  }
+
+  li {
+    padding: 4px 8px;
+  }
+}
+
+.app-c-section-search {
+  & > .ng-select {
+    .ng-arrow-wrapper {
+      display: none;
+    }
+
+    &.ng-select-multi {
+      background-color: $white;
+      @include border-radius(30px);
+      @include boxShadow(
+        0px 8px 12px transparentize($color: $shadow-color, $amount: 0.85),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+      );
+
+      .ng-select-container {
+        min-height: 56px;
+        max-height: 56px;
+        border: none;
+        @include border-radius(30px);
+
+        .ng-value-container {
+          width: 100%;
+          min-height: 56px;
+          max-height: 56px;
+          padding-left: 21px;
+
+          .rtl &,
+          [dir="rtl"] & {
+            padding-left: 0;
+            padding-right: 21px;
+          }
+
+          .ng-placeholder {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: $text-lg;
+            color: $text-dark-60;
+          }
+
+          .ng-input {
+            top: 0;
+            height: 100%;
+            padding-left: 21px;
+
+            .rtl &,
+            [dir="rtl"] & {
+              padding-left: 50px;
+              padding-right: 21px;
+            }
+
+            input {
+              height: 100%;
+            }
+          }
+
+          .ng-value {
+            &:not(.more-items) {
+              max-width: none;
+            }
+
+            .ng-value-label {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              font-size: $text-lg;
+              color: $app-brand-secondary;
+            }
+          }
+        }
+
+        .ng-clear-wrapper {
+          @include flex-shrink(0);
+          margin-right: 21px;
+          text-align: center;
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-right: 0;
+            margin-left: 21px;
+          }
+        }
+      }
+
+      .ng-dropdown-panel {
+        &.ng-select-bottom {
+          border: none;
+          @include border-radius(0 0 30px 30px);
+          @include boxShadow(0px 8px 12px -3px transparentize($color: $shadow-color, $amount: 0.85));
+
+          .ng-dropdown-header {
+            margin-bottom: 16px;
+            padding: 0 21px;
+            border-bottom: none;
+          }
+
+          .ng-dropdown-panel-items {
+            @include border-radius(0 0 30px 30px);
+
+            .ng-option {
+              padding: 0 21px;
+
+              &:hover {
+                background-color: $app-brand-primary-extra-light !important;
+              }
+
+              &.ng-option-marked {
+                background-color: $white !important;
+
+                &:hover {
+                  background-color: $app-brand-primary-extra-light !important;
+                }
+
+                &.ng-option-selected {
+                  background-color: $app-brand-primary-extra-light !important;
+                }
+              }
+
+              &.ng-option-selected {
+                background-color: $app-brand-primary-extra-light !important;
+
+                .app-c-section-search-name,
+                .app-c-section-search-cma,
+                .app-c-section-search-nsec {
+                  color: $app-brand-primary;
+                }
+              }
+
+              &.ng-option-disabled {
+                padding-top: 12px;
+                padding-bottom: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.ng-select-opened {
+      & > .ng-select-container {
+        @include noShadow();
+      }
+
+      &.ng-select-multi {
+        @include border-radius(30px 30px 0 0);
+
+        .ng-select-container {
+          @include border-radius(30px 30px 0 0);
+        }
+      }
+    }
+
+    &.ng-select-focused {
+      &:not(.ng-select-opened) {
+        & > .ng-select-container {
+          @include noShadow();
+        }
+      }
+    }
+  }
+
+  &.app-c-section-query {
+    & > .ng-select {
+      &.ng-select-multi {
+        @include noShadow();
+
+        .ng-select-container {
+          .ng-value-container {
+            padding-left: 48px;
+
+            .rtl &,
+            [dir="rtl"] & {
+              padding-left: 0;
+              padding-right: 48px;
+            }
+
+            .ng-input {
+              padding-left: 48px;
+
+              .rtl &,
+              [dir="rtl"] & {
+                padding-left: 50px;
+                padding-right: 48px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

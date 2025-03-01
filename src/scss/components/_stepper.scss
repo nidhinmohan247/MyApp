@@ -1,0 +1,196 @@
+
+.app-l-stepper {
+  &__steps {
+    .k-stepper {
+      font-family: $body-font;
+      .k-step-list-vertical {
+        .k-step {
+          min-height: 0 !important;
+          &:not(:first-child) {
+            margin-top: 8px;
+          }
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+          .k-step-indicator {
+            width: 22px;
+            height: 22px;
+            font-size: $text-md-plus;
+            margin-left: 0;
+            .rtl &,
+            [dir="rtl"] & {
+              margin-left: 3px;
+              margin-right: 0;
+            }
+          }
+          &:not(.k-step-current):not(.k-step-done) {
+            .k-step-indicator {
+              // color: $text-dark-60;
+              color: $text-dark-90;
+              // border-color: $text-dark-60;
+              border-color: $text-dark-90;
+            }
+          }
+          .k-step-text {
+            white-space: normal;
+            overflow: auto;
+            text-overflow: initial;
+            max-width: none;
+            overflow-wrap: break-word;
+          }
+        }
+        .k-step-label {
+          margin-left: 8px;
+          .rtl &,
+          [dir="rtl"] & {
+            margin-left: 0;
+            margin-right: 8px;
+          }
+          .k-step-text {
+            font-size: $text-lg;
+            color: $text-dark-70;
+          }
+        }
+        .k-step-current {
+          .k-step-indicator {
+            border-color: transparent;
+            background-color: $app-brand-primary;
+            @include flex-shrink(0);
+          }
+          .k-step-label .k-step-text {
+            font-weight: $font-weight-semibold;
+            color: $app-brand-primary;
+            // color: $app-brand-primary-extra-dark; // New contrast color
+          }
+        }
+        .k-step-done {
+          .k-step-indicator {
+            border-color: transparent;
+            background-color: $green-100;
+          }
+          .k-step-label .k-step-text {
+            font-weight: $font-weight-semibold;
+            color: $green-100;
+          }
+        }
+        .k-step-focus .k-step-indicator::after,
+        .k-step-link:focus .k-step-indicator::after {
+          display: none;
+        }
+        & ~ .k-progressbar {
+          display: none;
+        }
+      }
+    }
+  }
+  &--vertical {
+    @include flexbox();
+    height: 100%;
+    .app-l-stepper__steps,
+    .app-l-stepper__content {
+      padding: 16px;
+      height: 100%;
+      .ns-step{
+        margin-top: 10px;
+      }
+    }
+    .app-l-stepper__steps {
+      @include flex-shrink(0); 
+      max-width: 172px;
+      background-color: $text-dark-10;
+      &--max-w-a {
+        max-width: none;
+      }
+      .rtl &,
+      [dir="rtl"] & {
+        .k-stepper {
+          .k-step-link {
+            @include flex-direction($value :row-reverse); 
+          }
+        }
+      }
+    }
+
+    &.app-l-stepper__rmd {
+      .app-l-stepper__steps {
+        max-width: none;
+        width: 235px;
+
+        .k-stepper .k-step-label {
+          max-width: none;
+        }
+      }
+    }
+
+    .app-l-stepper__content {
+      width: 100%;
+      &__head {
+        margin-bottom: 16px;
+        font-size: $text-lg;
+        font-weight: $font-weight-normal;
+        color: $black;
+        .rtl &,
+        [dir="rtl"] & {
+          text-align: right;
+        }
+      }
+    }
+  }
+} 
+.ehd-stepper{
+  &.app-l-stepper__steps {
+    .k-stepper{ 
+      .k-step-label{
+        max-width: 200px;
+        margin-left: 8px;
+        .rtl &,
+        [dir="rtl"] & {
+          margin-left: 8px; 
+        } 
+      }
+        .k-step-list-vertical{          
+            margin: 10px 0px 10px 2px;
+            .rtl &,
+            [dir="rtl"] & {
+              margin: 10px 2px 10px 0px;
+            } 
+            .k-step:not(.k-step-current):not(.k-step-done){
+              .k-step-indicator{ 
+                border-color: transparent;
+                background-color: transparent;
+                font-weight: $font-weight-semibold;
+                color: $text-dark-70;
+              }
+            }
+            .k-step{ 
+                min-height: 48px!important;
+                @include flexbox();
+                @include align-items($value : center);
+                padding-left: 20px;                
+                margin: 0px;
+                cursor: pointer;
+                &.k-step-current{
+                    background: $white;
+                    @include boxShadow(0px 3px 3px rgba(9, 30, 66, 0.1));
+                    @include border-radius(6px 0px 0px 6px);
+                    .k-step-indicator{
+                      background-color: $app-brand-primary;
+                    }
+                    .rtl &,
+                    [dir="rtl"] & {
+                      @include border-radius(0px 6px 6px 0px);
+                    }
+                }
+            }
+            .k-step-indicator { 
+              margin-left: 0;
+              .rtl &,
+              [dir="rtl"] & {
+                margin-right: 3px;
+                margin-left: 0;
+              }
+            } 
+        } 
+    } 
+}
+}

@@ -1,0 +1,741 @@
+@import "../variables/variables";
+@import "../theme/theme";
+@import "../core/mixins/nsmap-card";
+
+.app-c-nsmap__modal {
+  @include flexbox();
+  @include flex-direction(column);
+  position: fixed;
+  width: 90%;
+  max-width: 1200px;
+  height: 75%;
+  left: 50%;
+  @include transform(translateX(-50%));
+  top: 100%;
+  @include transition(all 0.2s cubic-bezier(0.55, 0.06, 0.68, 0.19));
+  background-color: $white;
+  @include boxShadow(
+    0px 8px 12px transparentize($color: $shadow-color, $amount: 0.85),
+    0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+  );
+  @include border-radius(4px);
+  /*z-index: 9;*/
+  z-index: 7;
+
+  &-header {
+    @include flexbox();
+    @include justify-content(space-between);
+    @include align-items(center);
+    padding: 16px;
+    border-bottom: 1px solid $text-dark-30;
+    &--height {
+      height: $nsmap-modal-header-h;
+    }
+    &-left {
+      @include flexbox();
+      @include align-items(center);
+    }
+    &-title {
+      margin-bottom: 0;
+      font-size: $text-lg-plus;
+      font-weight: $font-weight-semibold;
+      color: $app-brand-secondary;
+      span {
+        color: $text-dark-70;
+      }
+    }
+  }
+  &--full {
+    /*width: 100%;*/
+    width: calc(100% - 70px);
+    left: 70px;
+    @include transform(none);
+    max-width: none;
+    @include border-radius(0);
+
+    .rtl &,
+    [dir="rtl"] & {
+      left: auto;
+      right: 70px;
+    }
+  }
+  &.inview {
+    top: 25%;
+  }
+  &.active {
+    top: 0;
+    height: 100%;
+    .app-c-nsmap__modal-header {
+      .app-c-btn--icon-20px {
+        .icon-full-view {
+          &:before {
+            content: "\e940";
+          }
+        }
+      }
+    }
+  }
+  &-nsmap-content {
+    @include flexbox();
+    height: 100%;
+    overflow: hidden;
+  }
+}
+.app-l-nsmap__sidebar {
+  width: calc(200px + 12px + 16px); /* width + padding(left+right) */
+  @include flex-shrink(0);
+  min-height: 0;
+  height: 100%;
+  overflow-y: hidden;
+  padding-top: 16px;
+  background-color: $text-dark-10;
+  &__in {
+    height: 100%;
+    padding-left: 16px;
+    padding-right: 12px;
+    .rtl &,
+    [dir="rtl"] & {
+      padding-left: 12px;
+      padding-right: 16px;
+    }
+  }
+}
+.app-l-nsmap__thumb-box {
+  @include border-radius(0 0 2px 2px);
+  @include nsmap-card-shadow;
+}
+.app-l-nsmap__thumbslc {
+  padding-top: 5px;
+  background: $text-dark-10;
+  @include border-radius(0 0 2px 2px);
+  li {
+    display: inline-block;
+    &:not(:first-child) {
+      margin-left: 22px;
+    }
+    .rtl &:not(:first-child),
+    [dir="rtl"] &:not(:first-child) {
+      margin-left: 0;
+      margin-right: 22px;
+    }
+    a {
+      cursor: pointer;
+      font-size: 20px;
+      color: $black;
+      @include transition(color ease 0.3s);
+
+      &:hover {
+        text-decoration: none;
+        color: $app-brand-primary;
+      }
+    }
+  }
+}
+.app-l-nsmap__sidetabs {
+  .app-c-nsmap__tab-st {
+    display: block;
+    cursor: pointer;
+    padding: 9.6px 16px;
+    font-size: $text-md-plus;
+    color: $text-dark-70;
+    border-left: 2px solid transparent;
+
+    &.app-c-nsmap__tab-flprop {
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(space-between);
+    }
+
+    .rtl &,
+    [dir="rtl"] & {
+      border-left: none;
+      border-right: 2px solid transparent;
+      text-align: right;
+    }
+    &.active {
+      background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(-4.29%, rgba(237, 93, 28, 0.1)),
+        color-stop(95%, rgba(237, 93, 28, 0))
+      );
+      background: -o-linear-gradient(left, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+      background: linear-gradient(90deg, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+      font-weight: $font-weight-semibold;
+      color: $app-brand-primary;
+      border-left-color: $app-brand-primary;
+      .rtl &,
+      [dir="rtl"] & {
+        border-right-color: $app-brand-primary;
+        background: -webkit-gradient(
+          linear,
+          right top,
+          left top,
+          color-stop(-4.29%, rgba(237, 93, 28, 0.1)),
+          color-stop(95%, rgba(237, 93, 28, 0))
+        );
+        background: -o-linear-gradient(right, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+        background: linear-gradient(270deg, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+      }
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__sub {
+    li {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    a {
+      cursor: pointer;
+      font-size: $text-md;
+      color: $text-dark-60;
+      @include transition(color ease 0.3s);
+      &.active {
+        font-weight: $font-weight-semibold;
+        color: $app-brand-secondary;
+      }
+      &:hover {
+        text-decoration: none;
+        color: $app-brand-secondary;
+      }
+    }
+  }
+}
+.app-l-nsmap__sidecont {
+  @include flex-grow(1);
+  /*overflow: auto;*/
+  overflow-y: hidden;
+  min-height: 0;
+  height: 100%; /*newly added*/
+  padding-top: 16px;
+  /*padding: 0 16px 0 12px;
+  [dir="rtl"] & {
+    padding-right: 12px;
+    padding-left: 16px;
+  }*/
+}
+.app-l-nsmap__main-tabs__content {
+  /*max-height: calc(100vh - (#{$nsmap-modal-header-h} + 16px + 16px)); /* 16px = top, bottom padding of .app-c-nsmap__modal-nsmap-content */
+  height: 100%; /* newly added */
+  padding-left: 12px;
+  padding-right: 16px;
+  [dir="rtl"] & {
+    padding-left: 16px;
+    padding-right: 12px;
+  }
+
+  .app-l-nsmap__main-tabs__content__inn {
+    @include flexbox();
+    @include flex-direction(column);
+    height: 100%;
+    @include boxShadow(
+      0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+      0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+    );
+    @include border-radius(4px);
+
+    &.full-screen {
+      position: fixed;
+      top: 0;
+      left: 70px;
+      width: calc(100% - 70px);
+      z-index: 2;
+
+      .rtl &,
+      [dir="rtl"] & {
+        left: auto;
+        right: 70px;
+      }
+
+      .app-l-nsmap__main-tabs__content__inn__head {
+        background-color: $white;
+      }
+    }
+
+    .app-l-nsmap__main-tabs__content__inn__head {
+      @include flexbox();
+      @include align-items(center);
+      @include boxShadow(
+        0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+      );
+      position: relative;
+      z-index: 2;
+      min-height: 54px;
+      padding: 15px 16px;
+
+      .app-l-nsmap__main-tabs__content__inn__head__txt {
+        font-size: $text-lg-plus;
+        font-weight: $font-weight-semibold;
+        color: $app-brand-secondary;
+      }
+    }
+
+    .app-l-nsmap__main-tabs__content__inn__sub {
+      background-color: $text-dark-10;
+    }
+  }
+}
+.app-l-nsmap__card {
+  margin-bottom: 1px;
+  border: 1px solid transparent;
+  border-top-color: #f3f3f3;
+  @include nsmap-card-shadow;
+  @include nsmap-card-radius;
+  &--flex-full-ht {
+    @include flexbox();
+    @include flex-direction(column);
+    height: calc(100% - 1px); /* 1px = margin-bottom */
+  }
+  &__mainhead {
+    @include flexbox();
+    @include align-items(center);
+    .app-l-heading--h4 {
+      color: $app-brand-secondary;
+    }
+  }
+  &__subhead {
+    margin: 15px 0;
+    font-size: $text-lg-plus;
+    font-weight: $font-weight-semibold;
+    color: $text-dark-90;
+    &--md-plus {
+      font-size: $text-md-plus;
+    }
+  }
+  &__footer {
+    @include flexbox();
+    @include align-items(center);
+    padding: 12px 15px;
+    background-color: $text-dark-10;
+  }
+}
+.app-l-nsmap__notes-eng-box {
+  margin-top: 16px;
+}
+.notes-eng-list {
+  font-size: $text-md-plus;
+  color: $app-brand-secondary;
+}
+.chart-box {
+  padding: 5px;
+  border: 1px solid $text-dark-20;
+  @include border-radius(4px);
+}
+.tc-col-ic-box {
+  @include flexbox();
+  @include align-items(center);
+}
+.tc-col-icon {
+  @include flex-shrink(0);
+  margin-right: 16px;
+  padding: 1px 2px;
+  min-width: 17px;
+  text-align: center;
+  background-color: $text-dark-20;
+  @include border-radius(2px);
+  .rtl &,
+  [dir="rtl"] & {
+    margin-right: 0;
+    margin-left: 16px;
+  }
+}
+.app-c-nsmap__modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 20, 32, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  @include transition(opacity 0.2s cubic-bezier(0.55, 0.06, 0.68, 0.19));
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.app-l-nsmap__defect-box {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  padding: 10px;
+  background-color: $text-dark-10;
+  border: 1px solid $text-dark-20;
+  @include border-radius(2px);
+  font-size: $text-md;
+  color: $text-dark-70;
+}
+
+.app-c-nsmap__toptabs {
+  @include flexbox();
+  @include align-items(center);
+}
+
+.app-l-nsmap__file-cont {
+  @include nsmap-card-shadow;
+  @include nsmap-card-radius;
+  background-color: $text-dark-10;
+  padding-bottom: calc(56px + 1px); /* height of file-cont-header */
+  margin-top: 1px;
+  &__header {
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    @include boxShadow(0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75));
+    background-color: $white;
+  }
+  &__actions {
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      & + li {
+        margin-left: 12px;
+        .rtl &,
+        [dir="rtl"] & {
+          margin-left: 0;
+          margin-right: 12px;
+        }
+      }
+      .app-c-btn--icon-circle {
+        background: none;
+        color: $text-dark-90;
+        &:hover {
+          background-color: $app-brand-primary;
+          color: $white;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  &--m-t-b {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  &__box {
+    position: relative;
+    @include flexbox();
+    @include flex-direction(column);
+    background-color: $white;
+    border: 1px solid $text-dark-30;
+    @include border-radius(5px);
+    @include transition(border 0.3s ease);
+    height: 100%;
+    overflow: hidden;
+    &__file {
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+      height: 100%;
+      &__prev {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        object-fit: cover;
+        height: 147px;
+      }
+      img:not(.app-l-nsmap__file-cont__box__file__prev) {
+        padding: 16px;
+      }
+    }
+    &__det {
+      margin-top: auto;
+      padding: 16px;
+      border-top: 1px solid $text-dark-30;
+      font-size: $text-md;
+      @include transition(background-color 0.3s ease);
+      &__fn {
+        color: $app-brand-secondary;
+        @include transition(color 0.3s ease);
+      }
+      &__fd {
+        color: $text-dark-60;
+      }
+    }
+    &__chk {
+      position: absolute;
+      top: -100%;
+      left: 12px;
+      z-index: 2;
+      opacity: 0;
+      @include transition(top 0.3s ease, opacity 0.3s ease);
+      .rtl &,
+      [dir="rtl"] & {
+        left: auto;
+        right: 12px;
+      }
+      .chkr-cont {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+          &:checked ~ .chkr-checkmark {
+            background-color: $app-brand-primary;
+            border-color: $app-brand-primary;
+            &::after {
+              display: block;
+            }
+          }
+        }
+        .chkr-checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 24px;
+          width: 24px;
+          @include border-radius(50%);
+          border: 2px solid $white;
+          @include transition(all 0.3s ease);
+          .rtl &,
+          [dir="rtl"] & {
+            left: auto;
+            right: 0px;
+          }
+          &::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate(-50%, -50%));
+            display: none;
+            content: "\e901";
+            // font-family: $font-icons;
+            color: $white;
+          }
+        }
+        &:hover {
+          input ~ .chkr-checkmark {
+            border-color: $app-brand-primary;
+          }
+        }
+      }
+    }
+    &__ov {
+      @include transform(scale(0));
+      @include transition(transform 0.3s ease);
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include flexbox();
+      @include flex-direction(column);
+      @include align-items(center);
+      width: 100%;
+      height: 100%;
+      padding: 12px;
+      background-color: transparentize($color: $app-brand-secondary, $amount: 0.6);
+      @include border-radius(3px);
+      z-index: 1;
+
+      &__tp {
+        width: 100%;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(flex-end);
+      }
+
+      &__bt {
+        width: 100%;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
+        margin-top: auto;
+
+        .app-c-btn--icon {
+          width: 30px;
+          height: 30px;
+        }
+
+        .app-c-btn--icon-circle {
+          @include flex-shrink(0);
+        }
+      }
+
+      &__view {
+        &.app-c-btn {
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
+      &__info {
+        @include flexbox();
+        @include justify-content(center);
+        @include align-items(center);
+        width: 24px;
+        height: 24px;
+        @include border-radius(50%);
+        border: 2px solid $white;
+        background-color: transparent;
+        font-size: $text-md;
+        color: $white;
+        @include transition(all 0.3s ease);
+        &:hover {
+          border-color: $app-brand-primary;
+          color: $app-brand-primary;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .app-l-nsmap__file-cont__box__loading {
+      display: none;
+      text-align: center;
+    }
+    .app-l-nsmap__file-cont__box__det {
+      .rtl &,
+      [dir="rtl"] & {
+        text-align: right;
+      }
+    }
+    .uploading & {
+      .app-l-nsmap__file-cont__box__det {
+        display: none;
+      }
+      .app-l-nsmap__file-cont__box__loading {
+        display: block;
+      }
+    }
+    .uploaded & {
+      &:hover {
+        .app-l-nsmap__file-cont__box__chk {
+          top: 12px;
+          opacity: 1;
+        }
+        .app-l-nsmap__file-cont__box__ov {
+          @include transform(scale(1));
+        }
+      }
+      &.selected {
+        border-color: $app-brand-primary;
+        .app-l-nsmap__file-cont__box__det {
+          background-color: $app-brand-primary-extra-light;
+          &__fn {
+            color: $app-brand-primary;
+          }
+        }
+        .app-l-nsmap__file-cont__box__chk {
+          top: 12px;
+          opacity: 1;
+        }
+      }
+      &.mobile-attachment {
+        .app-l-nsmap__file-cont__box__chk {
+          top: 12px;
+          opacity: 1;
+        }
+        .app-l-nsmap__file-cont__box__ov {
+          @include transform(scale(1));
+        }
+      }
+    }
+  }
+}
+
+.app-l-nsmap__accordion {
+  .panel-group {
+    & > .panel {
+      .card {
+        margin-top: 0;
+        margin-bottom: 12px;
+        @include border-radius(4px);
+        border: none;
+        @include boxShadow(
+          0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+          0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+        );
+
+        .card-header {
+          padding: 12px 16px;
+          @include border-radius(4px 4px 0 0 !important);
+          background-color: $white;
+          border: none;
+
+          .app-l-nsmap__accordion__head {
+            @include flexbox();
+            @include align-items(center);
+            @include justify-content(space-between);
+
+            .app-l-nsmap__accordion__head__txt {
+              font-size: $text-md-plus;
+              font-weight: $font-weight-semibold;
+              color: $text-dark-90;
+            }
+
+            .app-l-nsmap__accordion__head__toggle {
+              @include transition(transform 0.3s ease);
+            }
+          }
+        }
+
+        .card-body {
+          padding: 0;
+          border-top: 1px solid $text-dark-30;
+
+          .app-l-nsmap__accordion__content {
+            padding: 16px 16px 16px 16px;
+          }
+        }
+      }
+
+      &.panel-open {
+        .card {
+          .card-header {
+            .app-l-nsmap__accordion__head {
+              .app-l-nsmap__accordion__head__toggle {
+                @include transform(rotateZ(180deg));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-l-nsmap__main-tabs__content__grid-only {
+  @include flexbox();
+  @include flex-direction(column);
+  height: 100%;
+  background-color: $white;
+
+  &.full {
+    position: fixed;
+    top: 0;
+    left: 70px;
+    width: calc(100% - 70px);
+    z-index: 2;
+
+    .app-l-nsw__head {
+      .app-c-btn--icon-20px {
+        .icon-full-view {
+          &:before {
+            content: "\e940";
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-c-gismap__box {
+  height: 200px;
+  @include border-radius(2px 2px 0 0);
+}

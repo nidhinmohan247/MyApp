@@ -1,0 +1,47 @@
+@import "../variables/variables";
+@import "../theme/theme";
+
+.app-l-nsmap__sidetabs {
+  .panel {
+    &-open {
+      .app-c-nsmap__tab-st {
+        background: -webkit-gradient(linear, left top, right top, color-stop(-4.29%, rgba(237, 93, 28, 0.1)), color-stop(95%, rgba(237, 93, 28, 0)));
+        background: -o-linear-gradient(left, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+        background: linear-gradient(90deg, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+        font-weight: $font-weight-semibold;
+        color: $app-brand-primary !important;
+        border-left-color: $app-brand-primary !important;
+        .rtl &, [dir="rtl"] & {
+          border-right-color: $app-brand-primary !important;
+          background: -webkit-gradient(linear, right top, left top, color-stop(-4.29%, rgba(237, 93, 28, 0.1)), color-stop(95%, rgba(237, 93, 28, 0)));
+          background: -o-linear-gradient(right, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+          background: linear-gradient(270deg, rgba(237, 93, 28, 0.1) -4.29%, rgba(237, 93, 28, 0) 95%);
+        }
+        .icon-angle-light-bottom {
+          &::before {
+            content: "\e91e";
+          }
+        }
+      }
+    }
+    &.card,
+    .card-header {
+      background-color: transparent;
+      border: none;
+      @include border-radius(0);
+    }
+    .card-header {
+      padding: 0;
+    }
+    .panel-body {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-right: 0;
+      .rtl &, [dir="rtl"] & {
+        padding-left: 0;
+        padding-right: 1.25rem;
+        text-align: right;
+      }
+    }
+  }
+}

@@ -1,0 +1,815 @@
+// $iconpath: "/assets/fonts/icons";
+
+// @font-face {
+//   font-family: "myfont";
+//   src: url("#{$iconpath}/myfont.eot?k4s7ug");
+//   src:
+//     url("#{$iconpath}/myfont.eot?k4s7ug#iefix") format("embedded-opentype"),
+//     url("#{$iconpath}/myfont.ttf?k4s7ug") format("truetype"),
+//     url("#{$iconpath}/myfont.woff?k4s7ug") format("woff"),
+//     url("#{$iconpath}/myfont.svg?k4s7ug#myfont") format("svg");
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: block;
+// }
+
+// [class^="icon-"],
+// [class*=" icon-"] {
+//   /* use !important to prevent issues with browser extensions that change fonts */
+//   font-family: "myfont", Serif !important;
+//   speak: never;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-variant: normal;
+//   text-transform: none;
+//   line-height: 1;
+
+//   /* Better Font Rendering =========== */
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// .icon-query-circle:before {
+//   content: "\ea04";
+// }
+// .icon-lock-off:before {
+//   content: "\ea03";
+// }
+// .icon-lock-on:before {
+//   content: "\ea02";
+// }
+// .icon-query:before {
+//   content: "\ea01";
+// }
+// .icon-live-location:before {
+//   content: "\ea00";
+// }
+// .icon-file-bcdx:before {
+//   content: "\e9ff";
+// }
+// .icon-timer-fill:before {
+//   content: "\e9fd";
+// }
+// .icon-timer:before {
+//   content: "\e9fe";
+// }
+// .icon-sound-on:before {
+//   content: "\e9fa";
+// }
+// .icon-sound-off:before {
+//   content: "\e9fb";
+// }
+// .icon-construction-data:before {
+//   content: "\e9fc";
+// }
+// .icon-disabled:before {
+//   content: "\e9f9";
+// }
+// .icon-files-check:before {
+//   content: "\e9f8";
+// }
+// .icon-files:before {
+//   content: "\e9f7";
+// }
+// .icon-file-dwg:before {
+//   content: "\e9f5";
+// }
+// .icon-file-xls:before {
+//   content: "\e9f6";
+// }
+// .icon-file-doc:before {
+//   content: "\e9f2";
+// }
+// .icon-file-pdf:before {
+//   content: "\e9f3";
+// }
+// .icon-file-webm:before {
+//   content: "\e9f4";
+// }
+// .icon-file-mov:before {
+//   content: "\e9ee";
+// }
+// .icon-file-mp4:before {
+//   content: "\e9ef";
+// }
+// .icon-file-bmp:before {
+//   content: "\e9f0";
+// }
+// .icon-file-png:before {
+//   content: "\e9f1";
+// }
+// .icon-file-jpeg:before {
+//   content: "\e9ed";
+// }
+// .icon-file-jpg:before {
+//   content: "\e9ec";
+// }
+// .icon-dcp:before {
+//   content: "\e9ea";
+// }
+// .icon-core-logs:before {
+//   content: "\e9eb";
+// }
+// .icon-maximize-alt:before {
+//   content: "\e9e9";
+// }
+// .icon-section-alt:before {
+//   content: "\e9e8";
+// }
+// .icon-scrim:before {
+//   content: "\e9e7";
+// }
+// .icon-secondary-data:before {
+//   content: "\e9e6";
+// }
+// .icon-reverse:before {
+//   content: "\e9e5";
+// }
+// .icon-file-dgn:before {
+//   content: "\e9e3";
+// }
+// .icon-visual-inspection:before {
+//   content: "\e9e4";
+// }
+// .icon-section-drag:before {
+//   content: "\e9e2";
+// }
+// .icon-merge-alt:before {
+//   content: "\e9e1";
+// }
+// .icon-warning-alt:before {
+//   content: "\e9e0";
+// }
+// .icon-network-data-alt:before {
+//   content: "\e9df";
+// }
+// .icon-file-zip:before {
+//   content: "\e9de";
+// }
+// .icon-file-bcd:before {
+//   content: "\e9da";
+// }
+// .icon-file-mdb:before {
+//   content: "\e9db";
+// }
+// .icon-file-sup:before {
+//   content: "\e9dc";
+// }
+// .icon-file-f20:before {
+//   content: "\e9dd";
+// }
+// .icon-file-fwd:before {
+//   content: "\e9d6";
+// }
+// .icon-file-map:before {
+//   content: "\e9d7";
+// }
+// .icon-file-shape:before {
+//   content: "\e9d8";
+// }
+// .icon-file-csv:before {
+//   content: "\e9d9";
+// }
+// .icon-file-json:before {
+//   content: "\e9d4";
+// }
+// .icon-deflectograph:before {
+//   content: "\e9d5";
+// }
+// .icon-spatial-data:before {
+//   content: "\e9d3";
+// }
+// .icon-share-alt:before {
+//   content: "\e9d2";
+// }
+// .icon-pwd4u:before {
+//   content: "\e9d1";
+// }
+// .icon-phone:before {
+//   content: "\e9d0";
+// }
+// .icon-road-analysis:before {
+//   content: "\e9cf";
+// }
+// .icon-vehicle-damage:before {
+//   content: "\e9cd";
+// }
+// .icon-axle-load-alt:before {
+//   content: "\e9ce";
+// }
+// .icon-disaster-data:before {
+//   content: "\e9cc";
+// }
+// .icon-work-records:before {
+//   content: "\e9cb";
+// }
+// .icon-maintenance-defects:before {
+//   content: "\e9c9";
+// }
+// .icon-vdf:before {
+//   content: "\e9c8";
+// }
+// .icon-repeat:before {
+//   content: "\e9c7";
+// }
+// .icon-stop:before {
+//   content: "\e9c6";
+// }
+// .icon-condition-indices:before {
+//   content: "\e9c5";
+// }
+// .icon-defects:before {
+//   content: "\e9c4";
+// }
+// .icon-maximize:before {
+//   content: "\e9c3";
+// }
+// .icon-file-plus:before {
+//   content: "\e9c2";
+// }
+// .icon-video-camera:before {
+//   content: "\e9c1";
+// }
+// .icon-column-chart:before {
+//   content: "\e9c0";
+// }
+// .icon-alert-alt:before {
+//   content: "\e9bf";
+// }
+// .icon-bulb:before {
+//   content: "\e9be";
+// }
+// .icon-time:before {
+//   content: "\e9bc";
+// }
+// .icon-tick-circle:before {
+//   content: "\e9bd";
+// }
+// .icon-records:before {
+//   content: "\e9bb";
+// }
+// .icon-share:before {
+//   content: "\e9ba";
+// }
+// .icon-list-alt:before {
+//   content: "\e9b8";
+// }
+// .icon-grid:before {
+//   content: "\e9b9";
+// }
+// .icon-bituminous:before {
+//   content: "\e9b3";
+// }
+// .icon-soil:before {
+//   content: "\e9b7";
+// }
+// .icon-geometrics:before {
+//   content: "\e9b6";
+// }
+// .icon-crust:before {
+//   content: "\e9b5";
+// }
+// .icon-construction:before {
+//   content: "\e9b4";
+// }
+// .icon-budget:before {
+//   content: "\e9b2";
+// }
+// .icon-alert:before {
+//   content: "\e9b1";
+// }
+// .icon-flood:before {
+//   content: "\e9ae";
+// }
+// .icon-landslide:before {
+//   content: "\e9af";
+// }
+// .icon-disaster:before {
+//   content: "\e9b0";
+// }
+// .icon-home:before {
+//   content: "\e9ad";
+// }
+// .icon-users:before {
+//   content: "\e9ac";
+// }
+// .icon-rain:before {
+//   content: "\e9ab";
+// }
+// .icon-humidity:before {
+//   content: "\e9aa";
+// }
+// .icon-temperature:before {
+//   content: "\e9a9";
+// }
+// .icon-weather:before {
+//   content: "\e9a8";
+// }
+// .icon-axle-load:before {
+//   content: "\e9a7";
+// }
+// .icon-traffic-count-alt:before {
+//   content: "\e9a6";
+// }
+// .icon-traffic-data:before {
+//   content: "\e9a3";
+// }
+// .icon-carriageway-data:before {
+//   content: "\e9a4";
+// }
+// .icon-asset-data:before {
+//   content: "\e9a5";
+// }
+// .icon-network-data:before {
+//   content: "\e9a2";
+// }
+// .icon-route:before {
+//   content: "\e9a1";
+// }
+// .icon-hand:before {
+//   content: "\e9a0";
+// }
+// .icon-network-line-vertical:before {
+//   content: "\e99c";
+// }
+// .icon-scale-alt:before {
+//   content: "\e99d";
+// }
+// .icon-pentagon:before {
+//   content: "\e99e";
+// }
+// .icon-hexagon:before {
+//   content: "\e99f";
+// }
+// .icon-minus-rounded:before {
+//   content: "\e99b";
+// }
+// .icon-email:before {
+//   content: "\e99a";
+// }
+// .icon-monitor:before {
+//   content: "\e999";
+// }
+// .icon-zoom-out:before {
+//   content: "\e994";
+// }
+// .icon-book:before {
+//   content: "\e995";
+// }
+// .icon-chevron-left:before {
+//   content: "\e998";
+// }
+// .icon-chevron-right:before {
+//   content: "\e993";
+// }
+// .icon-redo:before {
+//   content: "\e996";
+// }
+// .icon-undo:before {
+//   content: "\e997";
+// }
+// .icon-double-angle-up:before {
+//   content: "\e992";
+// }
+// .icon-style-picker:before {
+//   content: "\e990";
+// }
+// .icon-styles:before {
+//   content: "\e991";
+// }
+// .icon-mast:before {
+//   content: "\e986";
+// }
+// .icon-tunnel:before {
+//   content: "\e987";
+// }
+// .icon-retaining-wall:before {
+//   content: "\e988";
+// }
+// .icon-gantry:before {
+//   content: "\e989";
+// }
+// .icon-footpath:before {
+//   content: "\e98a";
+// }
+// .icon-verge:before {
+//   content: "\e98b";
+// }
+// .icon-kerb:before {
+//   content: "\e98c";
+// }
+// .icon-cycleway:before {
+//   content: "\e98d";
+// }
+// .icon-footway:before {
+//   content: "\e98e";
+// }
+// .icon-carriageway:before {
+//   content: "\e98f";
+// }
+// .icon-filter-alt:before {
+//   content: "\e985";
+// }
+// .icon-tasks:before {
+//   content: "\e984";
+// }
+// .icon-list:before {
+//   content: "\e983";
+// }
+// .icon-arrow-circle-down:before {
+//   content: "\e981";
+// }
+// .icon-arrow-circle-up:before {
+//   content: "\e982";
+// }
+// .icon-paper-a3:before {
+//   content: "\e97e";
+// }
+// .icon-paper-a4:before {
+//   content: "\e97f";
+// }
+// .icon-paper-landscape:before {
+//   content: "\e980";
+// }
+// .icon-clipboard:before {
+//   content: "\e97d";
+// }
+// .icon-reset:before {
+//   content: "\e97c";
+// }
+// .icon-zoom:before {
+//   content: "\e97b";
+// }
+// .icon-pavement:before {
+//   content: "\e97a";
+// }
+// .icon-logout:before {
+//   content: "\e979";
+// }
+// .icon-user:before {
+//   content: "\e978";
+// }
+// .icon-arrow-light-left:before {
+//   content: "\e977";
+// }
+// .icon-traffic-counts:before {
+//   content: "\e976";
+// }
+// .icon-activities:before {
+//   content: "\e975";
+// }
+// .icon-traffic-signal:before {
+//   content: "\e974";
+// }
+// .icon-chart:before {
+//   content: "\e973";
+// }
+// .icon-web:before {
+//   content: "\e972";
+// }
+// .icon-info-outline:before {
+//   content: "\e971";
+// }
+// .icon-file:before {
+//   content: "\e96f";
+// }
+// .icon-refresh:before {
+//   content: "\e96d";
+// }
+// .icon-import:before {
+//   content: "\e96e";
+// }
+// .icon-network-line:before {
+//   content: "\e970";
+// }
+// .icon-point:before {
+//   content: "\e96c";
+// }
+// .icon-drag:before {
+//   content: "\e96b";
+// }
+// .icon-bridge4:before {
+//   content: "\e965";
+// }
+// .icon-bridge3:before {
+//   content: "\e966";
+// }
+// .icon-bridge2:before {
+//   content: "\e967";
+// }
+// .icon-circle:before {
+//   content: "\e968";
+// }
+// .icon-square:before {
+//   content: "\e969";
+// }
+// .icon-triangle:before {
+//   content: "\e96a";
+// }
+
+// .icon-help:before {
+//   content: "\e964";
+// }
+// .icon-traffic-count:before {
+//   content: "\e95f";
+// }
+// .icon-traffic-station:before {
+//   content: "\e963";
+// }
+// .icon-section:before {
+//   content: "\e962";
+// }
+// .icon-zip:before {
+//   content: "\e960";
+// }
+// .icon-map-point-full:before {
+//   content: "\e961";
+// }
+// .icon-info-simple:before {
+//   content: "\e95e";
+// }
+// .icon-clock:before {
+//   content: "\e95d";
+// }
+// .icon-star-filled:before {
+//   content: "\e95b";
+// }
+// .icon-star-outline:before {
+//   content: "\e95c";
+// }
+// .icon-culvert:before {
+//   content: "\e959";
+// }
+// .icon-lamp:before {
+//   content: "\e95a";
+// }
+// .icon-street-lamp:before {
+//   content: "\e95a";
+// }
+// .icon-save:before {
+//   content: "\e958";
+// }
+// .icon-sort-desc:before {
+//   content: "\e955";
+// }
+// .icon-sort-asc:before {
+//   content: "\e957";
+// }
+// .icon-location-add:before {
+//   content: "\e956";
+// }
+// .icon-split:before {
+//   content: "\e953";
+// }
+// .icon-merge:before {
+//   content: "\e954";
+// }
+// .icon-bridge:before {
+//   content: "\e952";
+// }
+// .icon-corners:before {
+//   content: "\e951";
+// }
+// .icon-heart:before {
+//   content: "\e950";
+// }
+// .icon-scale:before {
+//   content: "\e94e";
+// }
+// .icon-pointer-alt:before {
+//   content: "\e94f";
+// }
+// .icon-arrow-m-top:before {
+//   content: "\e94a";
+// }
+// .icon-arrow-m-right:before {
+//   content: "\e94b";
+// }
+// .icon-arrow-m-left:before {
+//   content: "\e94c";
+// }
+// .icon-arrow-m-bottom:before {
+//   content: "\e94d";
+// }
+// .icon-settings:before {
+//   content: "\e949";
+// }
+// .icon-two-wheeler:before {
+//   content: "\e948";
+// }
+// .icon-four-wheeler:before {
+//   content: "\e947";
+// }
+// .icon-style-editor:before {
+//   content: "\e946";
+// }
+// .icon-minimize:before {
+//   content: "\e945";
+// }
+// .icon-pause:before {
+//   content: "\e944";
+// }
+// .icon-next:before {
+//   content: "\e943";
+// }
+// .icon-prev:before {
+//   content: "\e942";
+// }
+// .icon-expand:before {
+//   content: "\e941";
+// }
+// .icon-small-view:before {
+//   content: "\e940";
+// }
+// .icon-full-view:before {
+//   content: "\e93f";
+// }
+// .icon-calendar:before {
+//   content: "\e93e";
+// }
+// .icon-play-fill:before {
+//   content: "\e93d";
+// }
+// .icon-street-view:before {
+//   content: "\e93c";
+// }
+// .icon-component-view:before {
+//   content: "\e93b";
+// }
+// .icon-play:before {
+//   content: "\e93a";
+// }
+// .icon-traffic:before {
+//   content: "\e939";
+// }
+// .icon-works:before {
+//   content: "\e938";
+// }
+// .icon-condition-data:before {
+//   content: "\e937";
+// }
+// .icon-surveys:before {
+//   content: "\e936";
+// }
+// .icon-assets:before {
+//   content: "\e935";
+// }
+// .icon-map:before {
+//   content: "\e934";
+// }
+// .icon-minus:before {
+//   content: "\e933";
+// }
+// .icon-location-point:before {
+//   content: "\e932";
+// }
+// .icon-view:before {
+//   content: "\e931";
+// }
+// .icon-table:before {
+//   content: "\e930";
+// }
+// .icon-network:before {
+//   content: "\e92f";
+// }
+// .icon-print:before {
+//   content: "\e92e";
+// }
+// .icon-cloud-download:before {
+//   content: "\e92d";
+// }
+// .icon-folder:before {
+//   content: "\e92c";
+// }
+// .icon-cloud-upload:before {
+//   content: "\e92b";
+// }
+// .icon-dots-vertical:before {
+//   content: "\e92a";
+// }
+// .icon-map-layer:before {
+//   content: "\e929";
+// }
+// .icon-connection:before {
+//   content: "\e928";
+// }
+// .icon-add-box:before {
+//   content: "\e927";
+// }
+// .icon-pointer:before {
+//   content: "\e926";
+// }
+// .icon-layer:before {
+//   content: "\e925";
+// }
+// .icon-eye-off:before {
+//   content: "\e924";
+// }
+// .icon-camera:before {
+//   content: "\e923";
+// }
+// .icon-search:before {
+//   content: "\e922";
+// }
+// .icon-angle-light-top:before {
+//   content: "\e91e";
+// }
+// .icon-angle-light-bottom:before {
+//   content: "\e91f";
+// }
+// .icon-angle-light-left:before {
+//   content: "\e920";
+// }
+// .icon-angle-light-right:before {
+//   content: "\e921";
+// }
+// .icon-clone:before {
+//   content: "\e91d";
+// }
+// .icon-create-user:before {
+//   content: "\e91c";
+// }
+// .icon-success:before {
+//   content: "\e918";
+// }
+// .icon-Info:before {
+//   content: "\e919";
+// }
+// .icon-error:before {
+//   content: "\e91a";
+// }
+// .icon-warning:before {
+//   content: "\e91b";
+// }
+// .icon-filter:before {
+//   content: "\e917";
+// }
+// .icon-columns:before {
+//   content: "\e916";
+// }
+// .icon-export:before {
+//   content: "\e915";
+// }
+// .icon-bell:before {
+//   content: "\e914";
+// }
+// .icon-plus:before {
+//   content: "\e913";
+// }
+// .icon-hamburger:before {
+//   content: "\e912";
+// }
+// .icon-delete:before {
+//   content: "\e911";
+// }
+// .icon-thumb:before {
+//   content: "\e910";
+// }
+// .icon-close-light:before {
+//   content: "\e90f";
+// }
+// .icon-upload:before {
+//   content: "\e90e";
+// }
+// .icon-location:before {
+//   content: "\e90d";
+// }
+// .icon-edit:before {
+//   content: "\e90c";
+// }
+// .icon-dots:before {
+//   content: "\e90b";
+// }
+// .icon-arrow-down:before {
+//   content: "\e907";
+// }
+// .icon-arrow-up:before {
+//   content: "\e908";
+// }
+// .icon-arrow-left:before {
+//   content: "\e909";
+// }
+// .icon-arrow-right:before {
+//   content: "\e90a";
+// }
+// .icon-angle-right:before {
+//   content: "\e903";
+// }
+// .icon-angle-left:before {
+//   content: "\e904";
+// }
+// .icon-angle-bottom:before {
+//   content: "\e905";
+// }
+// .icon-angle-up:before {
+//   content: "\e906";
+// }
+// .icon-enter:before {
+//   content: "\e902";
+// }
+// .icon-close:before {
+//   content: "\e900";
+// }
+// .icon-tick:before {
+//   content: "\e901";
+// }

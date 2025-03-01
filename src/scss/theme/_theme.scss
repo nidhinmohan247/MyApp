@@ -1,0 +1,173 @@
+$app-brand-primary:                      #C2470D;
+$app-brand-primary-dark:                 #AB3E0B;
+$app-brand-primary-extra-dark:           #8C330A; 
+$app-brand-primary-small-light:          #EA5510;
+$app-brand-primary-light:                #FDC5AC;
+$app-brand-primary-extra-light:          #FEF1EA;
+$app-brand-primary-disable:              #FEF1EA; 
+$app-brand-primary-20:                   #FEE2D5; 
+$app-brand-primary-50:                   #FD7D43;
+$app-brand-secondary:                    #121212;
+
+
+$text-dark-10  : #F7F7F7;
+$text-dark-20  : #ECECEC;
+$text-dark-30  : #DBDBDB;
+$text-dark-40  : #CCCCCC;
+$text-dark-50  : #9E9E9E;
+$text-dark-60  : #626262;
+$text-dark-70  : #515151;
+$text-dark-90  : #3B3B3B;
+$text-disabled : #FDC5AC;
+
+
+/*
+$app-brand-primary:                    #ED5D1C; // Old color
+$app-brand-primary:                      #CD4B0E; // new contrast color
+$app-brand-primary-dark:                 #D74D0E;
+$app-brand-primary-extra-dark:           #BF4006;
+$app-brand-secondary:                    #131420; // old color
+*/
+
+/* Text color */
+
+/*
+$text-dark-90 : #484442; // Old color
+$text-dark-90 : #716E6A; // New contrast color
+$text-dark-70 : #75716F; // Old color
+$text-dark-70 : #75716F; // New contrast color
+$text-dark-60 : #A19D9B; // Old color
+$text-dark-60 : #737373; // New contrast color
+$text-dark-65 : #808080; // New contrast color
+$text-dark-50 : #666360;
+$text-dark-40 : #CDC9C7;
+$text-dark-30 : #E4E1E0;
+$text-dark-20 : #EFECEA;
+$text-dark-25 : #F2F2F2;
+$text-dark-10 : #FAF9F8;
+*/
+
+
+$green-100 : #00875A; // new contrast color
+$green-dark-100 : #00573A;
+
+$green-10  : #E3FCEF;
+$red-100  : #EB5757;
+$red-dark-100  : #BF1600;
+$red-10  : #FFEBE6;
+$yellow-100  : #FFC400;
+$yellow-10  : #FFF4C9;
+$blue-100  : #0747A6;
+$blue-10  : #DEEBFF;
+$purple-100  : #403294;
+$purple-10  : #EAE6FF;
+$teal-10  : #E6FCFF;
+$teal-50  : #3FDCFF;
+$teal-100  : #00C5E3;
+$teal-dark-100  : #007B91;
+$violet    : #8777D9;
+
+$white:                                  #fff;
+$black:                                  #000;
+//$generic-border-color:                   #E4E1E0; //old color
+$generic-border-color:                   #CFCFCF;
+$red:                                    #DE350B;   
+//$default-bg-tint:                        #faf9f8; //old color
+$default-bg-tint:                        #F7F7F7;
+//indicators
+$yellow-warning:                         #FFAB00;    
+$purple-indicator:                       #DB00FF;
+$blue-indicator:                         #0038FF;
+$cyan-indicator:                         #00D1FF;
+$default-green   : #44AB66;
+$default-red     : #EB5757;
+$default-red-light : #FFF6F6;
+
+/*checkbox-theme */
+//$app-checkbox-border:     #A19D9B; //old color
+$app-checkbox-border:     #626262;
+//$app-checkbox-bg:         #FAF9F8; //old color
+$app-checkbox-bg:         #F7F7F7;
+//$app-checkbox-border-disable : #EFECEA; //old color
+$app-checkbox-border-disable : #ECECEC;
+//$app-checkbox-bg-disable : #EFECEA; //old color
+$app-checkbox-bg-disable : #ECECEC;
+
+/* Radio Button */
+$app-radio-border:     rgba(9, 30, 66, 0.25);
+//$app-radio-bg:         #FAF9F8; //old color
+$app-radio-bg:         #F7F7F7;
+$app-radio-border-disable : lighten(desaturate($app-brand-primary, 72.31), 70.98);
+
+/*form-control */
+
+//$form-control-border : #CDC9C7; //old color
+$form-control-border : #B1B1B1;
+//$form-control-active-border : #75716F; //old color
+$form-control-active-border : #515151;
+//$form-control-hover-border : #75716F; //old color
+$form-control-hover-border : #515151;
+$form-control-disable-border : #BDBDBD;
+//$form-control-disable-background : #F2F2F2; //old color
+$form-control-disable-background : #E1E1E1;
+
+$form-error: #DE350B;
+$form-error-background: $default-red-light;
+
+/*Tooltip */
+
+//$tooltip-background : #131420; //old color
+$tooltip-background : #121212;
+$tooltip-arrow-background : darken(desaturate($app-brand-primary, 61.10), 7.25%);
+
+/* Accordrion */
+//$accordrion-border : #E4E1E0; //old color
+$accordrion-border : #CFCFCF;
+$accordrion-border-active : lighten(desaturate($app-brand-primary, 78.65), 36.47);
+
+/*Modal */
+
+$modal-close-bg: lighten(desaturate($app-brand-primary, 72.31), 70.98);
+$modal-close-bg-hover: lighten(desaturate($app-brand-primary, 61.41), 65.49);
+
+/*Toggle Button */
+
+$app-toggle-bg: #E2E6EF;
+$app-toggle-active-bg : $default-green;
+//$app-toggle-inactive-border : #EFECEA; //old color
+$app-toggle-inactive-border : #ECECEC;
+//$app-toggle-inactive-hover-border : #E4E1E0; //old color
+$app-toggle-inactive-hover-border : #CFCFCF;
+//$app-toggle-inactive-hover-bg : #E4E1E0; //old color
+$app-toggle-inactive-hover-bg : #CFCFCF;
+
+/* Card */
+$app-card-border:                       #e6e5e5;
+$app-card-header:                       #f9fbff;
+$app-card-grey :                        #FCFCFC;
+$app-card-shadow                    : #E3E3E3;
+$app-card-bg :                        #ECECEC;
+
+/*Alert */
+$app-alert-success:                     #f0fff4;
+$app-alert-danger:                      #f8eced;
+$app-alert-warning:                     #fffbf0;
+$app-alert-info:                        #eff8ff;
+$app-alert-light:                       #f6f6f6;
+$app-alert-dark:                        #eaeaea;
+
+/*General Colors */
+$light-blue :                            #4c71f0;
+$dark-green:                             #5cb837;
+$dark-red:                               #ff5630;
+$dark-yellow:                            #ffc84c;
+$dark-blue:                              #1facfe;
+$light-grey:                             #eee;
+$dark-grey:                              #a4a4a4;
+$page-bg:                                #E5E5E5;
+       
+
+/* Kendo theme. */
+/* $primary: $app-brand-primary; */
+
+$shadow-color: #091e42;

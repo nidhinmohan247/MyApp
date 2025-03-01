@@ -1,0 +1,158 @@
+.app-c-accordion-grid {
+  &__head {
+    @include flexbox();
+    @include justify-content(space-between);
+    @include align-items(center);
+    &__left {
+      width: 100%;
+    }
+    &__toggle {
+      @include flex-shrink(0);
+    }
+  }
+  > .panel {
+    margin-top: 16px;
+    &.panel-open {
+      .app-c-accordion-grid__head__toggle {
+        .icon-angle-light-bottom::before {
+          content: "\e91e";
+        }
+      }
+    }
+    > .card {
+      border-color: $text-dark-20;
+      @include border-radius(2px);
+      > .card-header {
+        background-color: $text-dark-10;
+        border-bottom-color: $text-dark-20;
+        padding: 8px 11px;
+        &:first-child {
+          @include border-radius(2px);
+        }
+      }
+      > .panel-collapse {
+        > .card-body {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.k-panelbar {
+  font-family: $body-font;
+}
+.app-c-accordion-grid-alt {
+  .k-panelbar {
+    border: none;
+
+    > .k-item {
+      @include boxShadow(
+        0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+      );
+      @include border-radius(4px);
+
+      & + .k-item {
+        margin-top: 16px;
+        border-top-width: 0;
+      }
+
+      > .k-link {
+        padding: 8px 20px 8px 50px;
+        background-color: $white;
+        cursor: pointer;
+
+        .rtl &,
+        [dir="rtl"] & {
+          padding-right: 50px;
+          padding-left: 20px;
+        }
+
+        &:hover {
+          background-color: $white;
+        }
+
+        &.k-state-selected {
+          background-color: $white;
+          border-color: $white;
+          color: $black;
+        }
+
+        &.k-state-focused {
+          @include noShadow();
+
+          &:hover,
+          &.k-state-hover {
+            @include noShadow();
+          }
+
+          &.k-state-selected {
+            @include noShadow();
+          }
+        }
+      }
+    }
+
+    .k-panelbar-expand,
+    .k-panelbar-collapse {
+      right: auto;
+      left: 1.25rem;
+      // font-family: $font-icons;
+
+      .rtl &,
+      [dir="rtl"] & {
+        left: auto;
+        right: 1.25rem;
+      }
+    }
+
+    .k-panelbar-expand {
+      &::before {
+        content: "\e91f";
+      }
+    }
+
+    .k-panelbar-collapse {
+      &::before {
+        content: "\e91e";
+      }
+    }
+  }
+
+  &__head {
+    width: 100%;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+    // .rtl &,
+    // [dir="rtl"] & {
+    //   @include flex-direction($value :row-reverse);
+    // }
+    &__txt {
+      margin-right: 16px;
+      font-size: $text-lg-plus;
+      font-weight: $font-weight-semibold;
+      color: $app-brand-secondary;
+
+      .rtl &,
+      [dir="rtl"] & {
+        margin-right: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__content {
+    padding-bottom: 16px;
+    background-color: $page-bg;
+
+    .app-c-grid {
+      .k-grid {
+        border-left-width: 0 !important;
+        border-right-width: 0 !important;
+        border-top-color: $text-dark-30 !important;
+      }
+    }
+  }
+}

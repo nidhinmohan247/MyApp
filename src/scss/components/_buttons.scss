@@ -1,0 +1,1020 @@
+/* General button sizes */
+@import "../core/mixins/border-radius";
+@import "../core/mixins/transform";
+@import "../core/mixins/transitions";
+@import "../core/mixins/button-size";
+@import "../core/mixins/flexbox";
+@import "../core/mixins/box-shadow";
+
+@import "../variables/variables";
+@import "../theme/theme";
+
+.app-c-btn {
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none; /* Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214 */
+    border: 1px solid transparent;
+    font-weight: $font-weight-semibold;
+    color: $white;
+    padding: 6px 16px;
+    font-size: $text-md;
+    line-height: 18px;
+    outline: none;
+    font-family: $body-font;
+
+    @include transition(background ease 0.3s, color ease 0.3s, border ease 0.3s, box-shadow ease 0.3s);
+    @include inline-flex();
+    @include align-items(center);
+    @include border-radius(35px);
+
+    + .app-c-btn {
+        margin-left: 8px;
+
+        .rtl &:not([class*=" mr-"]),
+        [dir="rtl"] &:not([class*=" mr-"]) {
+            margin-left: 0 !important;
+            margin-right: 8px;
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+        outline: none;
+    }
+
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none; /* @include boxShadow(inset 0 3px 5px rgba(0,0,0,.125)); */
+
+        @include noShadow();
+    }
+
+    &:focus {
+        @include noShadow();
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: $cursor-disabled;
+        pointer-events: auto;
+        @include boxShadow(none);
+
+        &:hover,
+        &.hover {
+            @include boxShadow(none);
+        }
+    }
+
+    &.app-c-btn--h30 {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+.app-c-btn--primary {
+    background: $app-brand-primary;
+    border-color: $app-brand-primary;
+    color: $white;
+    min-width: 80px;
+
+    @include justify-content(center);
+
+    &:hover {
+        color: $white;
+        background: $app-brand-primary-dark;
+        border-color: $app-brand-primary-dark;
+        outline: none;
+    }
+    &:active,
+    &:focus {
+        background: $app-brand-primary-extra-dark;
+        border-color: $app-brand-primary-extra-dark;
+        outline: none;
+    }
+
+    &[disabled] {
+        background: $app-brand-primary-disable;
+        border-color: $app-brand-primary-disable;
+        color: $text-disabled;
+    }
+}
+
+.app-c-btn--secondary {
+    background: $text-dark-20;
+    border-color: $text-dark-20;
+    /*color: $text-dark-50;*/
+    color: $text-dark-90;
+    min-width: 80px;
+
+    @include justify-content(center);
+
+    &:hover {
+        background: $text-dark-30;
+        border-color: $text-dark-30;
+        outline: none;
+    }
+    &:not(.k-state-disabled):not([disabled]):active,
+    &:not(.k-state-disabled):not([disabled]):focus {
+        background: $text-dark-90;
+        border-color: $text-dark-90;
+        color: $text-dark-20;
+        outline: none;
+    }
+
+    &[disabled] {
+        color: $form-control-disable-border;
+        background: $text-dark-10;
+        border-color: $text-dark-10;
+    }
+}
+.app-c-btn--teritary {
+    background: $app-brand-primary-extra-light;
+    color: $app-brand-primary;
+    outline: none;
+
+    &:hover {
+        background: $app-brand-primary-light;
+        border-color: $app-brand-primary-light;
+        outline: none;
+    }
+    &:active,
+    &:focus {
+        background: $app-brand-primary;
+        border-color: $app-brand-primary;
+        color: $white;
+        outline: none;
+    }
+}
+.app-c-btn--icon-text {
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: none;
+
+    em {
+        font-size: $text-md;
+        margin-right: 7px;
+
+        @include flex-shrink(0);
+
+        .rtl &,
+        [dir="rtl"] & {
+            margin-right: auto !important;
+            margin-left: 7px;
+        }
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+.app-c-btn--split {
+    span {
+        border-right: 1px solid $text-dark-40;
+        padding-right: 8px;
+        margin-right: 12px;
+
+        .rtl &,
+        [dir="rtl"] & {
+            padding-right: 0;
+            padding-left: 8px;
+            border-left: 1px solid $text-dark-40;
+            border-right: none !important;
+            margin-right: 0 !important;
+            margin-left: 12px;
+        }
+        em {
+            font-size: 11px;
+        }
+    }
+    &:active {
+        span {
+            border-color: $text-dark-70;
+        }
+    }
+}
+.app-c-btn--success {
+    background: $dark-green;
+    color: $white;
+    border-color: $dark-green;
+
+    &:hover {
+        background: darken($dark-green, 10%);
+        border-color: $dark-green;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        @include noShadow();
+        outline: none;
+    }
+}
+
+.app-c-btn--danger {
+    background: $dark-red;
+    color: $white;
+    border-color: $dark-red;
+
+    &:hover {
+        background: darken($dark-red, 10%);
+        border-color: $dark-red;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--warning {
+    background: $dark-yellow;
+    color: $white;
+    border-color: $dark-yellow;
+
+    &:hover {
+        background: darken($dark-yellow, 10%);
+        border-color: $dark-yellow;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--info {
+    background: $dark-blue;
+    color: $white;
+    border-color: $dark-blue;
+
+    &:hover {
+        background: darken($dark-blue, 10%);
+        border-color: $dark-blue;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--light {
+    background: $light-grey;
+    border-color: $light-grey;
+
+    &:hover {
+        background: darken($light-grey, 10%);
+        border-color: $light-grey;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--dark {
+    background: $dark-grey;
+    color: $white;
+    border-color: $dark-grey;
+
+    &:hover {
+        background: darken($dark-grey, 10%);
+        border-color: $dark-grey;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--white {
+    background-color: $white;
+    border-color: $text-dark-10;
+    @include boxShadow(
+        0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+    );
+    &:focus {
+        @include boxShadow(
+            0px 1px 1px transparentize($color: $shadow-color, $amount: 0.75),
+            0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+        );
+    }
+}
+
+.app-c-btn--white-alt {
+    background-color: $white;
+    border: none;
+    @include boxShadow(
+        0px 3px 5px transparentize($color: $shadow-color, $amount: 0.8),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+    );
+    
+    &:active,
+    &[disabled],
+    &[disabled]:hover,
+    &:focus {
+        @include boxShadow(
+            0px 3px 5px transparentize($color: $shadow-color, $amount: 0.8),
+            0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+        );
+    }
+
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+
+.app-c-btn--link {
+    background: transparent;
+    border-color: transparent;
+    // color: $app-brand-primary;
+    /*color: $app-brand-primary-small-light;*/
+    color: $app-brand-primary;
+    text-decoration: underline;
+    font-size: $text-md;
+    padding: 0;
+
+    &:hover {
+        color: $app-brand-primary;
+        text-decoration: underline;
+
+        @include noShadow();
+    }
+}
+
+.app-c-btn--addon {
+    em {
+        margin-right: 5px;
+    }
+}
+
+.app-c-btn--block {
+    display: block;
+    width: 100%;
+
+    + .app-c-btn--block {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
+
+.app-c-btn--green {
+    background: $green-100;
+    color: $white;
+    border-color: $green-100;
+
+    &:hover {
+        &:not([disabled]) {
+            background: darken($green-100, 10%);
+            border-color: $green-100;
+            outline: none;
+        }
+    }
+
+    &:active,
+    &:focus {
+        @include noShadow();
+        outline: none;
+    }
+
+    &[disabled] {
+        opacity: 0.65;
+    }
+}
+
+.app-c-btn--red {
+    background: $red;
+    color: $white;
+    border-color: $red;
+
+    &:hover {
+        &:not([disabled]) {
+            background: darken($red, 10%);
+            border-color: $red;
+            outline: none;
+        }
+    }
+
+    &:active,
+    &:focus {
+        @include noShadow();
+        outline: none;
+    }
+
+    &[disabled] {
+        opacity: 0.65;
+    }
+}
+
+.app-c-btn--transparent {
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+/* Button Sizes */
+/* -------------------------------------------------- */
+.app-c-btn-lg {
+    height: auto !important;
+    padding: 15px 16px;
+    font-size: 16px;
+}
+
+.app-c-btn-sm {
+    height: auto !important;
+    padding: 7px 10px;
+    font-size: $text-md;
+}
+
+.app-c-btn-xs {
+    height: auto !important;
+    padding: 4px 8px;
+    font-size: $text-sm;
+}
+
+/*Button group */
+/*---------------------------------------------------- */
+.app-c-btn-group {
+    @include inline-flex();
+    position: relative;
+    vertical-align: middle;
+
+    > .app-c-btn {
+        position: relative;
+        @include flex(1, 1, auto);
+
+        + .app-c-btn {
+            margin-left: 0px;
+        }
+
+        &:not(:first-child),
+        &:not(.dropdown-toggle) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:last-child),
+        &:not(.dropdown-toggle) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:first-child {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}
+
+.app-c-btn--icon {
+    width: 32px;
+    height: 32px;
+    color: $text-dark-90;
+    padding: 0;
+    font-size: $text-xl;
+    outline: none;
+    min-width: 0;
+
+    @include border-radius(3px);
+    @include inline-flex();
+    @include align-items(center);
+    @include justify-content(center);
+
+    &.app-c-btn--icon-primary {
+        background: $app-brand-primary;
+        border-color: $app-brand-primary;
+        color: $white;
+
+        &:hover {
+            background: lighten($app-brand-primary, 8%);
+            border-color: lighten($app-brand-primary, 8%);
+            outline: none;
+        }
+
+        &:active,
+        &:focus {
+            background: lighten($app-brand-primary, 12%);
+            border-color: lighten($app-brand-primary, 12%);
+        }
+        &[disabled] {
+            background: lighten($app-brand-primary, 16%);
+            border-color: lighten($app-brand-primary, 16%);
+        }
+    }
+
+    &.app-c-btn--icon-border {
+        background: $white;
+        border: lighten(desaturate($app-brand-primary, 78.65), 36.47) 1px solid;
+        color: $text-dark-60;
+
+        @include border-radius(3px);
+
+        &:hover {
+            outline: none;
+            border-color: $app-brand-primary;
+            background: $app-brand-primary;
+            color: $white;
+        }
+        &:focus,
+        &:active {
+            border-color: $app-brand-primary-dark;
+            color: $white;
+            background: $app-brand-primary-dark;
+        }
+    }
+    &.app-c-btn--icon-plain {
+        background: none;
+        border: none;
+        width: auto;
+        height: auto;
+
+        @include border-radius(0);
+
+        &:focus,
+        &:active {
+            color: $app-brand-secondary;
+        }
+    }
+    &.app-c-btn--icon-circle {
+        @include border-radius(50%);
+
+        &[disabled] {
+            color: $form-control-disable-border;
+            background: $text-dark-10;
+            border-color: $text-dark-10;
+        }
+    }
+    &.app-c-btn-circle--shadow {
+        @include boxShadow(0px 1px 1px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31));
+    }
+    &.app-c-btn--teritary {
+        color: $app-brand-primary;
+
+        &:active,
+        &:focus {
+            background: $app-brand-primary;
+            border-color: $app-brand-primary;
+            color: $white;
+            outline: none;
+        }
+    }
+}
+
+.app-c-btn--link-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    color: $text-dark-90;
+    outline: none;
+
+    em {
+        font-size: $text-lg;
+        margin-right: 7px;
+
+        flex-shrink: (0);
+    }
+    span {
+        font-weight: $font-weight-normal;
+        font-size: $text-md;
+        line-height: 16px;
+    }
+
+    &:hover {
+        outline: none;
+        color: $app-brand-primary;
+    }
+}
+.app-c-btn--icon-30px {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: $text-lg !important;
+}
+.app-c-btn--icon-24px {
+    width: 24px;
+    height: 24px;
+    font-size: $text-md-plus;
+}
+.app-c-btn--icon-20px {
+    width: 20px;
+    height: 20px;
+    font-size: $text-md;
+}
+.app-c-btn--icon-18px {
+    width: 18px;
+    height: 18px;
+    font-size: $text-sm-plus;
+}
+.app-c-btn--icon-16px {
+    width: 16px;
+    height: 16px;
+    font-size: $text-sm;
+}
+
+.app-c-btn--icon--small {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 3px;
+    font-size: $text-md;
+    color: $text-dark-90;
+
+    &:hover,
+    &:focus {
+        color: $app-brand-primary;
+    }
+}
+
+/*Input group */
+/*---------------------------------------------------- */
+
+.input-group {
+    > .input-group-append {
+        .app-c-btn {
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            padding: 5px 16px;
+        }
+    }
+}
+
+.app-c-btn--txt-side {
+    margin-top: 16px;
+}
+.app-c-btn--link-icon--alt {
+    color: $text-dark-60;
+    em {
+        font-size: 9px;
+    }
+}
+
+.app-c-btn-drop-split {
+    .app-c-btn {
+        margin-left: 0;
+        min-width: 0;
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding-right: 8px;
+            &:hover + .dropdown-toggle-split,
+            &:focus + .dropdown-toggle-split {
+                &::before {
+                    height: 32px; /* height of button */
+                }
+            }
+        }
+        &.dropdown-toggle-split {
+            padding-left: 8px;
+            padding-right: 10px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                left: -1px;
+                top: 50%;
+                @include transform(translateY(-50%));
+                width: 1px;
+                height: 60%;
+                @include transition(all ease 0.3s);
+            }
+        }
+        &--primary {
+            &.dropdown-toggle-split {
+                &::before {
+                    background-color: $app-brand-primary-dark;
+                }
+                &:focus::before {
+                    background-color: $app-brand-primary-extra-dark;
+                }
+            }
+            &:focus + .dropdown-toggle-split {
+                &::before {
+                    background-color: $app-brand-primary-extra-dark;
+                }
+            }
+        }
+        &--secondary {
+            &.dropdown-toggle-split {
+                &::before {
+                    background-color: $text-dark-40;
+                }
+                &:hover::before {
+                    background-color: $text-dark-30;
+                }
+                &:focus::before {
+                    background-color: $text-dark-90;
+                }
+            }
+            &:hover + .dropdown-toggle-split {
+                &::before {
+                    background-color: $text-dark-30;
+                }
+            }
+            &:focus + .dropdown-toggle-split {
+                &::before {
+                    background-color: $text-dark-90;
+                }
+            }
+        }
+        .rtl &,
+        [dir="rtl"] & {
+            margin-right: 0 !important;
+            &:first-child {
+                border-top-right-radius: 35px !important;
+                border-bottom-right-radius: 35px !important;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                padding-left: 8px;
+                padding-right: 16px !important;
+            }
+            &.dropdown-toggle-split {
+                padding-left: 10px !important;
+                padding-right: 8px !important;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: 35px !important;
+                border-bottom-left-radius: 35px !important;
+                &::before {
+                    left: auto;
+                    right: -1px;
+                }
+            }
+        }
+    }
+    &.open {
+        .dropdown-toggle-split {
+            .icon-angle-light-top {
+                &::before {
+                    content: "\e91f";
+                }
+            }
+        }
+    }
+}
+
+.map-asset-icon {
+    position: relative;
+    @include inline-flex();
+    @include align-items(center);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: 1px solid $white;
+    @include border-radius(6px);
+    font-size: $text-xl;
+    color: $white;
+    @include boxShadow(
+        0px 3px 5px transparentize($color: $shadow-color, $amount: 0.8),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+    );
+    opacity: 0.8;
+    @include transform(opacity ease 0.3s);
+    z-index: 1;
+    &:hover {
+        opacity: 1;
+    }
+    &:focus {
+        outline: none;
+    }
+    &::after,
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        @include transform(translate(-50%));
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+    }
+    &::after {
+        bottom: -11px;
+        border-width: 6px;
+    }
+    &::before {
+        bottom: -14px;
+        border-width: 7px;
+        border-top-color: $white;
+    }
+    &--red {
+        background-color: $form-error;
+        &::after {
+            border-top-color: $form-error;
+        }
+    }
+    &--green {
+        background-color: $green-100;
+        &::after {
+            border-top-color: $green-100;
+        }
+    }
+    &--blue {
+        background-color: $teal-100;
+        &::after {
+            border-top-color: $teal-100;
+        }
+    }
+    &--purple {
+        background-color: $purple-100;
+        &::after {
+            border-top-color: $purple-100;
+        }
+    }
+    &--yellow {
+        background-color: $yellow-100;
+        &::after {
+            border-top-color: $yellow-100;
+        }
+    }
+    &--wrap {
+        position: relative;
+        @include inline-flex();
+        @include align-items(center);
+        padding-bottom: 7px;
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            @include transform(translate(-50%));
+            @include border-radius(50%);
+        }
+        &::after {
+            bottom: -1px;
+            width: 6px;
+            height: 4px;
+            background-color: $white;
+        }
+        &::before {
+            bottom: -2px;
+            width: 10px;
+            height: 6px;
+            background-color: transparentize($color: $white, $amount: 0.5);
+        }
+    }
+}
+
+.app-c-btn--icon-action {
+    em {
+        padding: 3px;
+        @include border-radius(4px);
+        @include transition(background-color ease 0.3s);
+    }
+    &:not(:disabled):hover {
+        color: $app-brand-primary;
+        em {
+            background-color: $app-brand-primary-light;
+        }
+    }
+}
+
+.app-c-btn__file-download {
+    @include inline-flex();
+    @include align-items(center);
+    @include justify-content(center);
+    @include border-radius(50%);
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: transparent;
+    em {
+        font-size: 14px;
+        color: $app-brand-primary;
+    }
+    &:hover {
+        background: $app-brand-primary-20;
+        border-color: $app-brand-primary-20;
+        outline: none;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+
+        @include noShadow();
+    }
+}
+.app-c-btn-close-panel{
+    background: transparent;
+    font-size: $text-md;  
+    width: auto;
+    margin-right: 16px;
+    .rtl &,
+    [dir="rtl"] & {
+        margin-right: 0;
+        margin-left: 16px;
+    }
+}
+
+.app-c-btn--icon-minimize {
+    &.app-c-btn--icon {
+        width: 20px;
+        height: 20px;
+        font-size: $text-sm-plus;
+    }
+}
+
+.app-c-btn-outline--primary {
+    color: $app-brand-primary;
+    background: $app-brand-primary-extra-light;
+    border: 1px solid $app-brand-primary;
+
+    &:not([disabled]) {
+        &:hover {
+            background: $app-brand-primary-light;
+        }
+    
+        &:active,
+        &:focus {
+            color: $white;
+            background: $app-brand-primary;
+        }
+    }
+
+    &.app-c-btn--icon {
+        &.app-c-btn--icon-circle {
+            &[disabled] {
+                color: $app-brand-primary-light;
+                background: $app-brand-primary-extra-light;
+                border-color: $app-brand-primary-light;
+            }
+        }
+    }
+}
+
+.app-c-btn--droparr {
+    span {
+        & + em {
+            &.icon-angle-light-bottom {
+                font-size: $text-sm;
+                margin: 2px 0 0 7px;
+        
+                .rtl &,
+                [dir="rtl"] & {
+                    margin-right: 7px;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.app-c-btn--dark-60 {
+    color: $white;
+    background: $text-dark-60;
+    border: 1px solid $text-dark-60;
+
+    &:not([disabled]) {
+        &:hover {
+            background: $text-dark-70;
+            border-color: $text-dark-70;
+        }
+
+        &:active,
+        &:focus {
+            background: $text-dark-90;
+            border-color: $text-dark-90;
+        }
+    }
+
+    &.app-c-btn--icon {
+        &.app-c-btn--icon-circle {
+            &[disabled] {
+                color: $white;
+                background: $text-dark-40;
+                border-color: $text-dark-40;
+            }
+        }
+    }
+}

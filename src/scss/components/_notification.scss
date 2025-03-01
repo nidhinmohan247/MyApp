@@ -1,0 +1,650 @@
+.k-notification-group {
+  z-index: 10002;
+  padding: 25px 16px;
+
+  .k-notification-container {
+    /*margin-top: 25px;*/
+
+    .k-notification {
+      border: none;
+      padding: 18px;
+
+      @include boxShadow(0px 8px 12px rgba(19, 20, 32, 0.15));
+      @include border-radius(3px);
+
+      .k-notification-wrap {
+        @include align-items(center);
+
+        .rtl &,
+        [dir="rtl"] & {
+          @include flex-direction(row-reverse);
+        }
+        .k-icon {
+          // font-family: $font-icons;
+          font-size: 22px;
+          width: auto;
+          height: auto;
+          margin-right: 18px;
+          color: $white;
+
+          @include flex-shrink(0);
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-right: 0;
+            margin-left: 18px;
+          }
+        }
+        .k-notification-content {
+          color: $white;
+          font-weight: $font-weight-semibold;
+          font-size: $text-lg;
+          line-height: 32px;
+        }
+      }
+      &.k-notification-success {
+        background: $green-100;
+
+        .k-notification-wrap {
+          .k-icon {
+            &:before {
+              content: "\e918";
+            }
+          }
+        }
+      }
+      &.k-notification-warning {
+        background: $yellow-100;
+
+        .k-notification-wrap {
+          .k-icon {
+            &:before {
+              content: "\e91b";
+            }
+          }
+          .k-notification-content {
+            color: $app-brand-secondary;
+          }
+        }
+      }
+      &.k-notification-error {
+        background: $red;
+
+        .k-notification-wrap {
+          .k-icon {
+            &:before {
+              content: "\e91a";
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Notification panel
+
+.app-c-left-notification-panel--left-touch {
+  &.active {
+    opacity: 1;
+    filter: alpha(opacity = 100);
+
+    .app-l-sidebar-panel__wrap {
+      @include transform(translate(70px, 0px) !important);
+
+      .rtl &,
+      [dir="rtl"] & {
+        @include transform(translate(-70px, 0px) !important);
+      }
+
+      @media screen and (max-width: $screen-xs-max) {
+        @include transform(translate(0px, 0px));
+      }
+    }
+  }
+}
+.app-c-left-notification-panel {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  height: 100%;
+  z-index: 5;
+
+  opacity: 0;
+  filter: alpha(opacity = 0);
+
+  @include transition(opacity ease 0.2s, visibility ease 0.2s);
+
+  // .app-l-sidebar__overlay {
+  //     position: fixed;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: rgba(#131420, 0.5);
+  //     visibility: hidden;
+  // }
+
+  .app-l-sidebar-panel__wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 332px;
+    height: 100%;
+    background: $white;
+
+    @include boxShadow(0px 5px 20px -4px rgba(0, 0, 0, 0.08));
+    @include flexbox();
+    @include flex-direction(column);
+    // @include transform(translate(100%, 0px));
+    @include transform(translateX(-430px));
+    @include transition(transform ease 0.2s, opacity ease 0.2s, visibility ease 0.2s);
+
+    @media screen and (max-width: $screen-xs) {
+      width: 100%;
+    }
+
+    .rtl &,
+    [dir="rtl"] & {
+      left: auto;
+      right: 0;
+      @include transform(translateX(430px));
+    }
+
+    &--width {
+      @media (min-width: 600px) {
+        & {
+          width: 512px;
+          .app-l-stepper--vertical {
+            .app-l-stepper__steps {
+              max-width: 180px;
+              min-width: 180px;
+            }
+          }
+        }
+      }
+    }
+
+    &--two-col-form {
+      @media (min-width: 700px) {
+        & {
+          width: 650px;
+        }
+      }
+      @media (max-width: 699px) {
+        & {
+          width: 80%;
+        }
+      }
+    }
+
+    &__nw-grp-add {
+      width: 65%;
+      max-width: 880px;
+    }
+
+    &__add-user {
+      width: 83.5%;
+      max-width: 1140px;
+    }
+
+    .app-l-sp__head {
+      border-bottom: 1px solid $generic-border-color;
+      padding: 16px 26px 16px 16px;
+
+      @include flexbox();
+      @include align-items(center);
+      @include flex-shrink(0);
+
+      .app-l-sp__hl {
+        @include flexbox();
+        @include align-items(center);
+
+        .app-l-sp__h-icon {
+          font-size: 15px;
+          margin-right: 7px;
+
+          @include flex-shrink(0);
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-left: 7px;
+            margin-right: 0;
+          }
+          em {
+            display: block;
+          }
+        }
+
+        .app-c-btn {
+          display: none;
+          font-size: 10px;
+          height: 15px;
+          margin-right: 10px;
+
+          @media screen and (max-width: $screen-xs-max) {
+            display: inline-block;
+          }
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-right: 0px;
+            margin-left: 10px;
+          }
+        }
+        .app-c-clear-all {
+          color: $app-brand-primary;
+          font-weight: normal;
+          font-size: 12px;
+          margin-left: 12px;
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-left: 0px;
+            margin-right: 12px;
+          }
+        }
+      }
+      .app-l-sp__hr {
+        margin-left: auto;
+        .rtl &,
+        [dir="rtl"] & {
+          margin-left: 0;
+          margin-right: auto;
+        }
+
+        .app-c-btn--icon-plain {
+          font-size: 12px;
+        }
+      }
+    }
+    .app-l-sp__body {
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+
+      .app-l-sp__padding {
+        padding: 0 16px;
+
+        @include flexbox();
+        @include flex-direction(column);
+
+        &:before,
+        &:after {
+          content: "";
+          width: 100%;
+          height: 16px;
+          display: block;
+
+          @include flex-shrink(0);
+        }
+
+        &.app-l-sp__padding--my-0 {
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+
+        &.app-l-sp__background {
+          background: $default-bg-tint;
+          min-height: 100%;
+        }
+        &.app-l-sp__background--white {
+          background: $white;
+          min-height: 100%;
+        }
+
+        &.app-l-sp__p32 {
+          &:before,
+          &:after {
+            height: 32px;
+          }
+        }
+      }
+    }
+    .app-l-sp__footer {
+      background: $default-bg-tint;
+      padding: 12px 16px;
+      position: relative;
+      z-index: 1;
+
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(flex-end);
+      @include boxShadow(0px -3px 3px rgba(9, 30, 66, 0.1));
+    }
+
+    .app-l-sidebar__form {
+      height: 100%;
+
+      @include flexbox();
+      @include flex-direction(column);
+
+      .app-l-sidebar__split {
+        height: 100%;
+        min-height: 0;
+
+        @include flexbox();
+
+        .app-l-sidebar__split-w {
+          width: 100%;
+
+          @include flexbox();
+          @include flex-direction(column);
+
+          .app-c-tab-group {
+            &.app-c-tab-alt {
+              .tab-container {
+                .nav {
+                  padding: 0 20px;
+
+                  .nav-item {
+                    .nav-link {
+                      padding-left: 6px;
+                      padding-right: 6px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.app-c-sidebar-panel--secondary {
+    z-index: 6;
+
+    .app-l-sidebar-panel__wrap {
+      height: auto;
+      max-height: 100%;
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    filter: alpha(opacity = 100);
+
+    .app-l-sidebar-panel__wrap {
+      @include transform(translate(70px, 0px));
+
+      .rtl &,
+      [dir="rtl"] & {
+        @include transform(translate(-70px, 0px));
+      }
+
+      @media screen and (max-width: $screen-xs-max) {
+        @include transform(translate(0px, 0px));
+      }
+    }
+    .app-l-sidebar__overlay {
+      visibility: visible;
+    }
+  }
+
+  &__sub-head {
+    font-size: $text-md-plus;
+    font-weight: $font-weight-semibold;
+    color: $app-brand-secondary;
+  }
+  &.app-c-sidebar--large {
+    .app-l-sidebar-panel__wrap {
+      width: 803px;
+      max-width: calc(100% - 71px);
+    }
+  }
+
+  // .app-c-left-notification-panel{
+  //     right: auto;
+  //     left: -360px;
+  //     .app-l-sidebar-panel__wrap {
+
+  //     }
+  // }
+}
+
+.app-l-notification-list__wrap {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 16px;
+    background: $white;
+    @include border-radius(4px);
+    @include flexbox();
+    @include align-items(flex-start);
+    @include boxShadow(0px 1px 1px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31));
+    .left-block {
+      width: 20px;
+      @include flex-shrink(0);
+
+      em {
+        font-size: 16px;
+        &.exporting-data {
+          color: $app-brand-primary;
+        }
+        &.success-data {
+          color: $green-100;
+        }
+        &.warning-data {
+          color: $yellow-100;
+        }
+        &.fail-data {
+          color: $form-error;
+        }
+      }
+    }
+    .right-block {
+      width: 100%;
+      margin-left: 8px;
+
+      .rtl &,
+      [dir="rtl"] & {
+        margin-left: 0px;
+        margin-right: 8px;
+      }
+
+      .right-heading__block {
+        margin-bottom: 4px;
+        @include flexbox();
+        @include align-items(center);
+        .app-l-notification-heading__block {
+          .app-l-notification-heading--h4 {
+            color: $app-brand-secondary;
+            font-weight: $font-weight-semibold;
+            font-size: 13px;
+            margin-bottom: 0px;
+            padding-right: 12px;
+            word-break: break-word;
+
+            .rtl &,
+            [dir="rtl"] & {
+              margin-right: 0px;
+              margin-left: 12px;
+              padding-left: 12px;
+              padding-right: 0px;
+            }
+          }
+        }
+        .app-l-notification-action-btn__block {
+          margin-left: auto;
+          @include flexbox();
+          @include align-items(center);
+          @include flex-shrink(0);
+
+          .rtl &,
+          [dir="rtl"] & {
+            margin-left: 0px;
+            margin-right: auto;
+          }
+          .app-c-btn {
+            font-size: 9px;
+            color: $text-dark-70;
+            width: 20px;
+            height: 20px;
+            padding: 8px;
+            @include border-radius(100%);
+
+            &:hover {
+              color: $app-brand-primary;
+              background: #fee2d6;
+            }
+          }
+          .app-c-selected-button {
+            width: 16px;
+            height: 16px;
+            background-color: $app-brand-primary;
+            @include border-radius(100%);
+
+            margin-left: 12px;
+            .rtl &,
+            [dir="rtl"] & {
+              margin-left: 0px;
+              margin-right: 12px;
+            }
+            .app-c-selected-button-icon {
+              position: relative;
+              height: 100%;
+              @include flexbox();
+              @include align-items(center);
+              @include justify-content(center);
+              &:before {
+                content: "";
+                background: $white;
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+                // position: absolute;
+                // top: 4px;
+                // bottom: -9px;
+                left: 4px;
+                @include border-radius(100%);
+              }
+            }
+          }
+        }
+      }
+      .right-heading__info-block {
+        margin-bottom: 9px;
+        padding-right: 20px;
+        text-align: left;
+
+        .rtl &,
+        [dir="rtl"] & {
+          padding-right: 0px;
+          padding-left: 20px;
+          text-align: right;
+        }
+
+        p {
+          color: $text-dark-90;
+          font-weight: normal;
+          font-size: 12px;
+          margin-bottom: 0px;
+          word-break: break-word;
+        }
+      }
+      .app-l-file__progress {
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        border-color: transparent;
+        .app-l-file__cn {
+          width: calc(100% - 35px);
+          .app-l-file__np {
+            .app-l-file__name {
+              width: 172px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+        .app-l-file__action {
+          .app-l-file__close {
+            background: none;
+            font-size: 10px;
+            color: $text-dark-70;
+          }
+        }
+      }
+      .app-l-import-btn-block {
+        text-align: left;
+
+        .rtl &,
+        [dir="rtl"] & {
+          text-align: right;
+        }
+
+        .app-c-file-upload {
+          .app-l-file-upload__btn {
+            label {
+              background: none;
+              border: none;
+              padding: 0px;
+            }
+          }
+        }
+        .app-l-file-upload-date {
+          color: $text-dark-70;
+          font-size: 12px;
+          font-weight: $font-weight-semibold;
+          margin: 8px 0px 0px;
+        }
+      }
+    }
+    + li {
+      margin-top: 12px;
+    }
+    &.disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      .right-block {
+        .right-heading__block {
+          .app-l-notification-action-btn__block {
+            .app-c-selected-button {
+              background: $text-dark-40;
+              .app-c-selected-button-icon {
+                &:before {
+                  background: $text-dark-40;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-l-no-notification__block {
+  height: 100%;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.notification-alert {
+  &.k-notification-info {
+    background: #121212;
+  }
+  .k-i-info {
+    margin-top: 0px;
+    &:before {
+      content: "\e971";
+    }
+  }
+}
+
+.app-l-push-notifications {
+  padding: 0px !important;
+
+  .k-icon {
+    display: none;
+  }
+}

@@ -1,0 +1,509 @@
+.app-c-tooltip--primary{
+    &.tooltip{
+        &.show{
+            opacity: 1;
+        }
+        .tooltip-inner{
+            background: $tooltip-background;
+            padding: 12px;
+            font-size: $text-md;
+            color: $white;
+            line-height: 18px;
+            text-align: left;
+
+            @include border-radius(4px);
+
+            h3{
+                color: $white;
+            }
+        }
+        &.bs-tooltip-top{
+            .tooltip-arrow{
+                &:before{
+                    border-width: 7px 8px;
+                    border-top-color: $tooltip-arrow-background;
+                }
+            }
+        }
+        &.bs-tooltip-bottom{
+            .tooltip-arrow{
+                &:before{
+                    border-width: 7px 8px;
+                    border-bottom-color: $tooltip-arrow-background;
+                }
+            }
+        }
+        &.bs-tooltip-right{
+            .tooltip-arrow{
+                &:before{
+                    border-width: 8px 7px;
+                    border-right-color: $tooltip-arrow-background;
+                }
+            }
+        }
+        &.bs-tooltip-left{
+            .tooltip-arrow{
+                &:before{
+                    border-width: 8px 7px;
+                    border-left-color: $tooltip-arrow-background;
+                }
+            }
+        }
+    }
+}
+
+/* Kendo tooltip */
+
+.k-tooltip-wrapper{
+    .k-popup{
+        border: none;
+
+        .k-tooltip{
+            background: $tooltip-background;
+            padding: 8px 14px;
+
+            @include noShadow();
+            @include border-radius(3px);
+
+            .k-tooltip-content{
+                font-size: $text-md;
+                line-height: 18px;
+                font-weight: $font-weight-normal;
+            }
+            .k-callout{
+                color: $tooltip-background;
+            }
+        }
+    }
+    &.app-l-role-description__tooltip{
+        .k-popup{
+            max-width: 250px;
+        }
+    }
+}
+
+
+.app-l-mc__type-popover {
+    margin-bottom: 15px;
+    border: none;
+
+    @include border-radius(0);
+
+    .popover-arrow{
+        margin-left: -1px;
+        right: 0px;
+    }
+
+    .popover-content{
+        &.popover-body{
+            padding: 4px;
+
+            @include boxShadow(0px 3px 5px rgba(9, 30, 66, 0.2), 0px 0px 1px rgba(9, 30, 66, 0.31));
+            @include border-radius(0);
+        }
+        
+
+        .app-l-mc__layer{
+            position: relative;
+            width: 132px;
+            height: 104px;
+
+            img{
+                display: block;
+            }
+            &:after{
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                pointer-events: none;
+                
+                background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0) 41%, rgba(255,255,255,1) 100%); 
+                background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 41%,rgba(255,255,255,1) 100%); 
+                background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0) 41%,rgba(255,255,255,1) 100%); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); 
+            }
+            .app-l-mc__layer-text{
+                position: absolute;
+                bottom: 3px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                color: $app-brand-primary;
+                font-weight: $font-weight-semibold;
+                font-size: $text-sm-plus;
+                text-transform: uppercase;
+                z-index: 1;
+            }
+        }
+    } 
+}
+
+.app-l-network-popover{
+    border: none;
+    max-width: 350px;
+    width: 350px;
+
+    @include border-radius(4px);
+    @include boxShadow(0px 8px 12px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31));
+
+    &.app-l-popover--wa {
+        width: auto;
+        max-width: none;
+    }
+
+    &.app-l-adn__map{
+        width: auto;
+    }
+    &.app-l-tc__map{
+        width: 235px;
+    }
+    .popover-arrow{
+        &:before{
+            display: none;
+        }
+    }
+    .popover-content{
+        &.popover-body{
+            padding: 0;
+
+            .app-l-np__wrap{
+                position: relative;
+
+                .app-l-np__head__multi {
+                    padding: 10px 16px;
+                    @include flexbox();
+                    @include align-items(center);
+                    border-bottom: 1px solid $text-dark-30;
+                    color: $app-brand-secondary;
+
+                    .app-l-np__head__multi__icon {
+                        margin-right: 8px;
+                        font-size: $text-xl;
+
+                        .rtl &,
+                        [dir="rtl"] & {
+                            margin-right: 0;
+                            margin-left: 8px;
+                        }
+                    }
+
+                    .app-l-np__head__multi__txt {
+                        font-size: $text-md;
+                        font-weight: $font-weight-semibold;
+                    }
+                }
+
+                .app-l-np__head__attr {
+                    @include flexbox();
+                    @include align-items(center);
+                    padding: 8px 16px;
+                    border-bottom: 1px solid $text-dark-30;
+
+                    .app-l-np__head__attr__name {
+                        font-size: $text-lg-plus;
+                        font-weight: $font-weight-semibold;
+                        color: $app-brand-secondary;
+                    }
+                }
+
+                .app-l-np__body{
+                    @include flexbox();
+
+                    .app-l-np__bl{
+                        width: 142px;
+                        padding: 16px;
+
+                        @include flex-shrink(0);
+
+                        .app-l-np__bh{
+                            margin-bottom: 14px;
+
+                            h5{
+                                margin: 0;
+                                padding: 0;
+                                color: $app-brand-secondary;
+                                font-size: $text-lg;
+                                line-height: 16px;
+                                font-weight: $font-weight-normal;
+                            }
+                        }
+                        .app-l-np__score{
+                            @include flexbox();
+
+                            .app-l-np__sl{
+                                width: 100%;
+
+                                .app-l-np__s-label{
+                                    color: $text-dark-70;
+                                    display: block;
+                                    font-size: $text-lg;
+                                    line-height: normal;
+                                }
+                                .app-l-np__s-value{
+                                    display: block;
+                                    color: $green-100;
+                                    font-weight: $font-weight-semibold;
+                                    font-size: 32px;
+                                    line-height: 32px;
+                                }
+                            }
+                            .app-l-np__sr{
+                                @include align-self(flex-end);
+                            }
+                        }
+                    }
+                    .app-l-np__br{
+                        width: 100%;
+                        background: $text-dark-10;
+                        padding: 16px;
+
+                        .app-l-np__b-block{
+                            @include flexbox();
+                            @include align-items(center);
+
+                            + .app-l-np__b-block{
+                                margin-top: 8px;
+                            }
+                            .app-l-npr__bl{
+                                span{
+                                    display: block;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    color: $text-dark-70;
+                                    font-size: $text-md;
+                                    line-height: 18px;
+                                }
+                            }
+                            .app-l-npr__br{
+                                margin-left: auto;
+
+                                .rtl &, [dir="rtl"] &{
+                                    margin-left: 0;
+                                    margin-right: auto;
+                                }
+
+                                span{
+                                    display: block;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    color: $app-brand-secondary;
+                                    font-size: $text-md;
+                                    line-height: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .app-l-np__footer{
+                    border-top: $generic-border-color 1px solid;
+                    padding: 12px 16px;
+
+                    @include flexbox();
+                    @include align-items(center);
+
+                    .app-l-np__fl{
+                        .app-c-btn--icon{
+                            background: none;
+                            border: none;
+                            color: $app-brand-primary;
+                            font-size: $text-xl-plus;
+
+                            &:hover{
+                                color: $app-brand-primary-extra-dark;
+                            }
+                        }
+                    }
+                    .app-l-np__fr{
+                        margin-left: auto;
+
+                        .rtl &, [dir="rtl"] &{
+                            margin-left: 0;
+                            margin-right: auto;
+                        }
+
+                        .app-c-btn--link{
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .app-l-np__close{
+                    position: absolute;
+                    top: -15px;
+                    right: -15px;
+                    background: $white;
+                    font-size: $text-sm;
+                    color: $text-dark-70;
+                    
+                    @include flexbox();
+                    @include align-items(center);
+                    @include justify-content(center);
+
+                    .rtl &, [dir="rtl"] &{
+                        right: auto;
+                        left: -15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.app-l-ai__tooltip{
+    max-width: 199px;
+
+    .k-popup{
+        .k-tooltip{
+            @include border-radius(3px);
+
+            .app-l-ai__tl-wrap{
+                @include flexbox();
+                @include align-items(center);
+                
+                .app-l-ai__tl-left{
+                    margin-right: 13px;
+                    position: relative;
+
+                    .rtl &, [dir="rtl"] &{
+                        margin-right: 0;
+                        margin-left: 13px;
+                    }
+
+                    &:before{
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        position: absolute;
+                        top: 4px;
+                        left: 5px;
+                        background: $white;
+                    }
+                    em{
+                        display: block;
+                        font-size: 20px;
+                        color: $app-brand-primary;
+                        position: relative;
+                        z-index: 1;
+                    }
+                }
+                .app-l-ai__tl-right{
+                    p{
+                        margin: 0;
+                        font-size: $text-md;
+                        line-height: 18px;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.app-c-tooltip--error{
+    .k-popup {
+        .k-tooltip {
+            background: #FC2626;
+
+            .k-callout {
+                color: #FC2626;
+            }
+        }
+    }
+}
+
+.app-c-pinfo__popover {
+    border: none;
+    @include boxShadow(
+        0px 2px 4px transparentize($color: $shadow-color, $amount: 0.75),
+        0px 0px 1px transparentize($color: $shadow-color, $amount: 0.69)
+    );
+    @include border-radius(3px);
+}
+
+.app-c-tooltip--light {
+    .k-popup {
+        .k-tooltip {
+            background: $white;
+            color: $app-brand-secondary;
+
+            .k-callout {
+                color: $white;
+            }
+        }
+    }
+}
+
+.app-c-tooltip__dn {
+    max-width: 300px;
+    white-space: normal;
+    text-overflow: clip;
+    word-wrap: break-word;
+}
+
+.app-c-popover-tooltip {
+    background-color: $app-brand-secondary;
+    border: none;
+    @include border-radius(3px);
+    @include noShadow();
+
+    & > .arrow {
+        &::before {
+            display: none;
+        }
+    }
+
+    &.bs-popover-top {
+        & > .arrow {
+            &::after {
+                border-top-color: $app-brand-secondary;
+            }
+        }
+    }
+
+    &.bs-popover-right {
+        & > .arrow {
+            &::after {
+                border-right-color: $app-brand-secondary;
+            }
+        }
+    }
+      
+    &.bs-popover-bottom {
+        & > .arrow {
+            &::after {
+                border-bottom-color: $app-brand-secondary;
+            }
+        }
+    }
+      
+    &.bs-popover-left {
+        & > .arrow {
+            &::after {
+                border-left-color: $app-brand-secondary;
+            }
+        }
+    }
+
+    .popover-body {
+        color: $white;
+    }
+}
+
+.app-c-legend-tooltip {
+    max-width: 310px;
+    @include border-radius(12px);
+
+    & > .arrow {
+        &::after {
+            display: none;
+        }
+    }
+
+    .popover-body {
+        color: $text-dark-20;
+    }
+}
