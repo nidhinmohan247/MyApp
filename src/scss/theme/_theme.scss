@@ -1,7 +1,7 @@
-$app-brand-primary:                      #C2470D;
-$app-brand-primary-dark:                 #AB3E0B;
-$app-brand-primary-extra-dark:           #8C330A; 
-$app-brand-primary-small-light:          #EA5510;
+$app-brand-primary:                      #0747A6;
+$app-brand-primary-dark:                 darken(#0747A6, 20%);
+$app-brand-primary-extra-dark:            darken(#0747A6, 40%);
+$app-brand-primary-small-light:          lighten(#0747A6, 20%);
 $app-brand-primary-light:                #FDC5AC;
 $app-brand-primary-extra-light:          #FEF1EA;
 $app-brand-primary-disable:              #FEF1EA; 
