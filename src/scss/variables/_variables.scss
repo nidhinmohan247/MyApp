@@ -10,6 +10,7 @@ $margin-sm: $sm;
 $margin-base: $base;
 $margin-lg: $lg;
 $margin-xl: $xl;
+$margin-xxl: 50px;
 
 /*padding */
 $padding-sm: $sm;
@@ -49,9 +50,10 @@ $cursor-disabled: not-allowed !default;
 $checkbox-size: 18px;
 $radio-size: 18px;
 $fontawesome-icons: "Font Awesome 5 Free";
+$font-icons: "trl-iroads", Serif;
 
 /*== Media queries breakpoints */
-/*
+/* 
 /* ## Define the breakpoints at which your layout will change, adapting to different screen sizes. */
 
 /*  Extra small screen / phone */
@@ -90,3 +92,14 @@ $screen-md-max: ($screen-lg-min - 1) !default; /* 1199px */
 
 $nsmap-modal-header-h: 53px;
 $sidepanel-width: 335px;
+
+$border-radius: 4px;
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+$max-container-width: 1440px; // Maximum width for the container
+$box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$transition-speed: 0.3s;

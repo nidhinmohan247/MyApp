@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   getMessage(): string {
-    return 'Angular app is running better than ever';
+    return 'Header';
   }
 }
